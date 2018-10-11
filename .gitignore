@@ -48,5 +48,5 @@ Thumbs.db
 
 # Other #
 ############
-dist
-node_modules
+dist/
+node_modules/
