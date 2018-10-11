@@ -1,0 +1,24 @@
+{
+  "name": "busbuddy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdyuanglee/idm371.git"
+  },
+  "author": "busbuddy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jdyuanglee/idm371/issues"
+  },
+  "homepage": "https://github.com/jdyuanglee/idm371#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "uglify": "^0.1.5"
+  }
+}
