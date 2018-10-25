@@ -48,6 +48,5 @@ Thumbs.db
 
 # Other #
 ############
-dist/
 node_modules/
 config/
