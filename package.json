@@ -21,7 +21,8 @@
     "body-parser": "^1.18.3",
     "concurrently": "^4.0.1",
     "express": "^4.16.4",
-    "mongoose": "^5.3.5"
+    "mongoose": "^5.3.5",
+    "normalize.css": "^8.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.4",
