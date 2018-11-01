@@ -5,10 +5,10 @@
   "main": "src/js/app.js",
   "scripts": {
     "babel": "babel",
-    "build": "webpack",
+    "build": "webpack & npm run copyviews",
     "start": "webpack --watch",
     "dev": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.js",
-    "copyviews": "./scripts/copy-views.sh"
+    "copyviews": "start ./scripts/copy-views.sh"
   },
   "author": "Bus Buddy",
   "license": "ISC",
