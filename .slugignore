@@ -1,0 +1,6 @@
+# Ignores files for heroku not necessary to run application
+
+boots/
+worksofar/
+*.py
+
