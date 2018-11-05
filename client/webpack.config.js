@@ -6,23 +6,18 @@ module.exports = {
 	entry: {
 		//When making a new page, add its js path here
 		style: './src/sass/app.scss',
-		home: './src/js/app.js',
+		home: './src/js/Home.js',
 		user: './src/js/User.js'
 	},
-	plugins: [
-		new HtmlWebpackPlugin({
-			title: 'Home Page',
-			filename: './build/index.html'
-		}),
-	],
+	
 	output: {
 		path: __dirname,
-		filename: './build/js/[name].bundle.js',
+		filename: './build/js/[name]-bundle.js',
 	},
 	watch: false,
 	devServer: {
 		contentBase: path.join(__dirname, 'dist'),
-		port: 3000
+		port: 3001
 	},
 	devtool: "source-map",
 	module: {

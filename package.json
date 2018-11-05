@@ -5,7 +5,14 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "build-client": "start ./scripts/build-client.sh & npm run server",
+    "build-run": "npm run build-client & npm run server",
+    "client-install": "npm install --prefix client",
+    "client": "npm start --prefix client",
+    "full-install": "npm install & npm run client-install",
+    "full-dev": "concurrently \"npm run server\" \"npm run client\"",
+    "postinstall": "npm build-run"
   },
   "repository": {
     "type": "git",

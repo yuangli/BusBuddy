@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 
 const schools = require('./routes/api/schools');
 const buddies = require('./routes/api/buddies');
+const home = require('./routes/pages/home');
 
 const app = express();
 
@@ -19,8 +20,13 @@ mongoose
 	.then(() => console.log('MongoDB Connected...'))
 	.catch((err) => console.log('Nope: ', err));
 
+//Declare static files path
+var buildDir = __dirname + "client/build";
+app.use(express.static(buildDir));
+
 //Use routes
 //First parameter is URL route, second is path var above
+app.use('/', home);
 app.use('/api/schools', schools);
 app.use('/api/buddies', buddies);
 
