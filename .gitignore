@@ -49,6 +49,5 @@ Thumbs.db
 # Other #
 ############
 node_modules/
-config/
 client/build
 .env
