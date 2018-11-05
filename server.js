@@ -12,6 +12,7 @@ const app = express();
 app.use(bodyParser.json());
 
 //DB Config
+console.log("URI: ", require('./config/keys').mongoURI);
 const db = require('./config/keys').mongoURI;
 
 //Connect to Mongo
