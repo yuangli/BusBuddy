@@ -29,6 +29,7 @@
     "concurrently": "^4.0.1",
     "express": "^4.16.4",
     "mongoose": "^5.3.5",
+    "node": "^11.0.0",
     "normalize.css": "^8.0.0"
   },
   "devDependencies": {
