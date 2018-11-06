@@ -11,11 +11,7 @@
     "dev": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.js",
     "copyviews": "start ../scripts/copy-views.sh",
     "copyfonts": "start ../scripts/copy-fonts.sh",
-    "copyassets": "npm run copyviews & npm run copyfonts",
-    "build-heroku": "webpack & npm run copyassets-heroku",
-    "copyviews-heroku": "run ../scripts/copy-views.sh",
-    "copyfonts-heroku": "run ../scripts/copy-fonts.sh",
-    "copyassets-heroku": "npm run copyviews-heroku & npm run copyfonts-heroku"
+    "copyassets": "npm run copyviews & npm run copyfonts"
   },
   "author": "Bus Buddy",
   "license": "ISC",
