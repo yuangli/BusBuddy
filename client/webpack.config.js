@@ -28,6 +28,17 @@ module.exports = {
 				query: {
 					presets: ['es2015', 'react']
 				}
+			},
+			{
+				test: /\.scss$/,
+				use: [
+					
+					{
+						loader: 'sass-loader', options:{
+							sourceMap: true
+						}
+					}
+				]
 			}
 		]
 	}
