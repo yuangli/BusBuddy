@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const schools = require('./routes/api/schools');
 const buddies = require('./routes/api/buddies');
@@ -12,7 +13,6 @@ const app = express();
 app.use(bodyParser.json());
 
 //DB Config
-console.log("URI: ", require('./config/keys').mongoURI);
 const db = require('./config/keys').mongoURI;
 
 //Connect to Mongo
@@ -22,8 +22,16 @@ mongoose
 	.catch((err) => console.log('Nope: ', err));
 
 //Declare static files path
-var buildDir = __dirname + "client/build";
-app.use(express.static(buildDir));
+//app.use(express.static(buildDir));
+
+if(process.env.NODE_ENV === 'production'){
+	//Set static folder
+	app.use(express.static('client/build'));
+
+	app.get('*', (req, res) =>{
+		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+	})
+}
 
 //Use routes
 //First parameter is URL route, second is path var above

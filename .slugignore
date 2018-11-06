@@ -1,4 +1,4 @@
-# Ignores files for heroku not necessary to run application
+# Files for heroku to ignore upon push
 
 boots/
 worksofar/
