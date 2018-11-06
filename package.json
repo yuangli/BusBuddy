@@ -12,7 +12,7 @@
     "client": "npm start --prefix client",
     "full-install": "npm install & npm run client-install",
     "full-dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build-heroku --prefix client"
   },
   "repository": {
     "type": "git",
