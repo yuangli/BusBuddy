@@ -28,31 +28,6 @@ module.exports = {
 				query: {
 					presets: ['es2015', 'react']
 				}
-			},
-			{
-				test: /\.scss$/,
-				use: [
-					{
-						loader: 'file-loader',
-						options: {
-							name: './build/css/screen.css'
-						}
-					},
-					{
-						loader: 'extract-loader'
-					},
-					{
-						loader: 'css-loader?-url'
-					},
-					{
-						loader: 'postcss-loader'
-					},
-					{
-						loader: 'sass-loader', options:{
-							sourceMap: true
-						}
-					}
-				]
 			}
 		]
 	}
