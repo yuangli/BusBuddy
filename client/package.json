@@ -14,7 +14,7 @@
     "build-heroku": "webpack & npm run copyassets-heroku",
     "copyviews-heroku": "run ../scripts/copy-views.sh",
     "copyfonts-heroku": "run ../scripts/copy-fonts.sh",
-    "copyassets-heroku": "npm run copyviews & npm run copyfonts"
+    "copyassets-heroku": "npm run copyviews-heroku & npm run copyfonts-heroku"
   },
   "author": "Bus Buddy",
   "license": "ISC",

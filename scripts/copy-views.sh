@@ -13,4 +13,3 @@ else
 fi
 
 echo "Views copy process finished."
-sleep 10s

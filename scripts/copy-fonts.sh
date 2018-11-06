@@ -10,5 +10,4 @@ else
 	cp ../client/src/fonts/* ../client/build/fonts
 fi
 
-sleep 7s
 echo "Fonts copy process finished."
