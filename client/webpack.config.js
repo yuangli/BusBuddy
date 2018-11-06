@@ -1,6 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
-var MiniCssExtractPlugin = require("node_modules/mini-css-extract-plugin");
+var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
 	entry: {
