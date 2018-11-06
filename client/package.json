@@ -5,9 +5,9 @@
   "main": "src/js/app.js",
   "scripts": {
     "babel": "babel",
-    "webpack-build": "webpack --display-error-details",
     "build": "webpack & npm run copyassets",
     "start": "webpack --watch",
+    "webpack-build": "webpack --display-error-details",
     "dev": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.js",
     "copyviews": "start ../scripts/copy-views.sh",
     "copyfonts": "start ../scripts/copy-fonts.sh",
@@ -24,18 +24,15 @@
     "es6-promise": "^4.2.4",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "style-loader": "^0.23.1",
     "webpack": "^4.12.2",
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.5"
   },
   "devDependencies": {
-    "autoprefixer": "^9.3.1",
     "css-loader": "^1.0.1",
-    "extract-loader": "^3.0.0",
-    "file-loader": "^2.0.0",
+    "mini-css-extract-plugin": "^0.4.4",
     "node-sass": "^4.9.4",
-    "postcss-cli": "^6.0.1",
-    "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0"
   }
 }

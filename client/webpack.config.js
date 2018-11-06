@@ -1,10 +1,11 @@
 var webpack = require('webpack');
 var path = require('path');
+var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
 	entry: {
 		//When making a new page, add its js path here
-		style: './src/sass/app.scss',
+		style1: './src/sass/app.scss',
 		home1: './src/js/Home.js',
 		user1: './src/js/User.js'
 	},
@@ -20,8 +21,8 @@ module.exports = {
 	},
 	devtool: "source-map",
 	module: {
-		rules: [
-			{
+        rules: [
+        	{
 				test: /.jsx?$/,
 				loader: 'babel-loader',
 				exclude: /node_modules/,
@@ -29,17 +30,31 @@ module.exports = {
 					presets: ['es2015', 'react']
 				}
 			},
-			{
+			{  
 				test: /\.scss$/,
-				use: [
-					
-					{
-						loader: 'sass-loader', options:{
-							sourceMap: true
-						}
-					}
-				]
-			}
-		]
-	}
+		        use: [
+		        	{
+			            loader: MiniCssExtractPlugin.loader
+			        },
+			        {
+			            loader: 'css-loader',
+			            options: {
+			              sourceMap: true
+			            }
+			        },
+			        {
+			            loader: 'sass-loader',
+			            options: {
+			              sourceMap: true			            }
+			        }
+		        ]
+	      	}  
+	    ]    
+    },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: "build/css/[name].css",
+            chunkFilename: "build/css/[id].css"
+        })
+    ]
 };
