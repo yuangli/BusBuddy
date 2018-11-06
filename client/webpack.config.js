@@ -5,13 +5,13 @@ module.exports = {
 	entry: {
 		//When making a new page, add its js path here
 		style: './src/sass/app.scss',
-		home: './src/js/Home.js',
-		user: './src/js/User.js'
+		home1: './src/js/Home.js',
+		user1: './src/js/User.js'
 	},
 	
 	output: {
 		path: __dirname,
-		filename: './build/js/[name]-bundle.js',
+		filename: './build/js/[name]-bundle.js'
 	},
 	watch: false,
 	devServer: {
