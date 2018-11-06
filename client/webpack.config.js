@@ -53,8 +53,8 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: "build/css/[name].css",
-            chunkFilename: "build/css/[id].css"
+            filename: "build/css/screen.css",
+            chunkFilename: "build/css/screen.css"
         })
     ]
 };
