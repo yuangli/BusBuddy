@@ -5,7 +5,14 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "build-client": "cd ./client & npm run build",
+    "build-run": "npm run build-client & npm run server",
+    "client-install": "npm install --prefix client",
+    "client": "npm start --prefix client",
+    "full-install": "npm install & npm run client-install",
+    "full-dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run webpack-build --prefix client && mkdir ./client/build/views && cp ./client/src/views/* ./client/build/views &&  cp ./client/src/index.html ./client/build/index.html"
   },
   "repository": {
     "type": "git",
@@ -20,8 +27,10 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "concurrently": "^4.0.1",
+    "dotenv": "^6.1.0",
     "express": "^4.16.4",
     "mongoose": "^5.3.5",
+    "node": "^11.0.0",
     "normalize.css": "^8.0.0"
   },
   "devDependencies": {

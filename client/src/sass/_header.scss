@@ -1,0 +1,168 @@
+// Style Guide
+    
+
+    // TYPOGRAPHY
+    // @font-face {
+    //     font-family: "Lora";
+    //     src: url("../fonts/Lora-Bold.ttf");
+    //     src: url("../fonts/Lora-BoldItalic.ttf");
+    //     src: url("../fonts/Lora-Italic.ttf");
+    //     src: url("../fonts/Lora-Regular.ttf");
+    // }
+
+    // @font-face {
+    //     font-family: "Roboto";
+    //     src: url("../fonts/Roboto-Black.ttf");
+    //     src: url("../fonts/Roboto-BlackItalic.ttf");
+    //     src: url("../fonts/Roboto-Bold.ttf");
+    //     src: url("../fonts/Roboto-BoldItalic.ttf");
+    //     src: url("../fonts/Roboto-Italic.ttf");
+    //     src: url("../fonts/Roboto-Light.ttf");
+    //     src: url("../fonts/Roboto-LightItalic.ttf");
+    //     src: url("../fonts/Roboto-Medium.ttf");
+    // }
+
+    h1, h2, h3, h4, h5{
+        font-family: Roboto;
+        color: #032237;
+    }
+    p{
+        font-family: Lora;
+        color: #888888;
+    }
+        
+*{
+    max-width: 100%;
+    /* Border for developing */
+    // border-style: solid;
+    // border-width: 1px;
+    // border-color: rgb(0, 80, 252);
+}
+
+ul{
+    padding: 0;
+}
+
+.c-home-banner__text > h1{
+    font-size: 3rem;
+}
+
+.c-graphic{
+    display: none;
+    position: absolute;
+    top: -10rem;
+    left: -10rem;
+}
+
+.c-top-nav__submenu{
+    list-style-type: none;
+    margin: 2rem;
+
+    & > li{
+        padding: 0 2rem;
+        display: inline-block;
+    }
+}
+
+.l-home-header{
+    text-align: right;
+}
+
+.l-home-main{
+    width: 90%;
+    margin: 0 auto;
+
+}
+
+.c-content{
+    margin-bottom: 5rem;
+    line-height: 1.5;
+}
+
+.c-home-banner{
+    margin-right: 1.3rem;
+    &__text{
+        width: 100%;
+        text-align: right;    
+    }
+}
+
+.c-how-it-works img{
+    width: 100%;
+    margin: 0 auto;
+}
+
+.c-explanation{
+    
+    &__img{
+        margin: auto;
+    }
+}
+
+.c-selling{
+    box-shadow: 0 2px 12px 3px rgba(0, 0, 0, 0.2);
+    padding: 3rem;
+    text-align: center;
+    &__body{
+        width: 90%;
+        margin: auto;
+
+    }
+
+}
+
+.c-ui-map{
+    width: auto;
+
+    // Placeholder
+    text-align: center;
+}
+
+@media screen and (min-width: 87.5em) {
+    html{
+        font-size: 120%;
+    }
+}
+
+@media only screen and (min-width: 1080px) {
+    .c-graphic{
+        position: absolute;
+        top: -4rem;
+        left: -2rem;
+    }
+    .l-home-main{
+        width: 60%;
+    }
+    .c-explanation{
+        display: flex;
+    }
+    .c-explanation{
+    
+        &__img{
+            padding-right: 2rem;
+        }
+
+        &__text{
+            width: 60%;
+        }
+    }
+
+    .c-selling{
+        &__body{
+            display: flex;
+            width: 90%;
+    
+        }
+    
+        &__map{
+            width: 34%;
+        }
+    }
+    .c-home-banner{
+        padding: 3rem 3rem 3rem 50%;
+        margin-right: 10%;
+    }
+    .c-graphic{
+        display: block;
+    }
+}

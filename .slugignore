@@ -1,0 +1,6 @@
+# Files for heroku to ignore upon push
+
+boots/
+worksofar/
+*.py
+
