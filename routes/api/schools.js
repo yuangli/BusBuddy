@@ -10,7 +10,7 @@ const School = require('../../models/School');
 router.get('/', (req, res) => {
 	School.find()
 		.sort({ dateAdded: -1 })
-		.then(schools => res.json(schools))
+		.then(schools => res.json(schools));
 });
 
 // @route POST api/schools

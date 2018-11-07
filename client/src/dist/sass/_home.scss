@@ -1,0 +1,91 @@
+@import "graphic.scss";
+@import "how-it-work.scss";
+@import "selling.scss";
+@import "ui-map.scss";
+
+.c-content{
+    margin-bottom: 5rem;
+    line-height: 1.5;
+}
+
+.c-home-banner__text > h1{
+    font-size: 3rem;
+}
+
+.c-top-nav__submenu{
+    list-style-type: none;
+    margin: 2rem;
+
+    & > li{
+        padding: 0 2rem;
+        display: inline-block;
+    }
+}
+.l-home-header{
+    text-align: right;
+}
+
+.l-home-main{
+    width: 90%;
+    margin: 0 auto;
+
+}
+
+.c-home-banner{
+    margin-right: 1.3rem;
+    &__text{
+        width: 100%;
+        text-align: right;    
+    }
+}
+
+
+
+@media screen and (min-width: 87.5em) {
+    html{
+        font-size: 120%;
+    }
+}
+
+@media only screen and (min-width: 1080px) {
+    .c-graphic{
+        position: absolute;
+        top: -4rem;
+        left: -2rem;
+    }
+    .l-home-main{
+        width: 60%;
+    }
+    .c-explanation{
+        display: flex;
+    }
+    .c-explanation{
+    
+        &__img{
+            padding-right: 2rem;
+        }
+
+        &__text{
+            width: 60%;
+        }
+    }
+
+    .c-selling{
+        &__body{
+            display: flex;
+            width: 90%;
+    
+        }
+    
+        &__map{
+            width: 34%;
+        }
+    }
+    .c-home-banner{
+        padding: 3rem 3rem 3rem 50%;
+        margin-right: 10%;
+    }
+    .c-graphic{
+        display: block;
+    }
+}
