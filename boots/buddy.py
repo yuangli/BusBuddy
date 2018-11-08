@@ -10,7 +10,7 @@ def sendIt():
 	payload = json.dumps(raw)
 	print('Sending ', payload)
 
-	r = requests.post('http://localhost:5000/api/buddies', data = payload, headers = {"content-type":"application/json"})
+	r = requests.post('https://serene-oasis-62993.herokuapp.com/api/buddies', data = payload, headers = {"content-type":"application/json"})
 	print(r)
 	print(r.text)
 	print('Finished.')
@@ -21,4 +21,3 @@ def hello():
 	print("Helloooo")
 
 sendIt()
-hello()
