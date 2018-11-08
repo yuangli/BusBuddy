@@ -6,7 +6,7 @@ def sendIt():
 
 	print('Executing...')
 
-	raw = {"student_id":"123"}
+	raw = {"student_id":"1333333"}
 	payload = json.dumps(raw)
 	print('Sending ', payload)
 
@@ -21,4 +21,3 @@ def hello():
 	print("Helloooo")
 
 sendIt()
-hello()
