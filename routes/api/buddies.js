@@ -7,9 +7,10 @@ const Student = require('../../models/Students');
 // @desc Get all schools
 // @access Public (for now)
 router.get('/', (req, res) => {
-	Student.find()
-		.sort({ studentrfid: -1 })
-		.then(students => res.json(students));
+	res.send('Welcom to the buddies API');
+	// Student.find()
+	// 	.sort({ studentrfid: -1 })
+	// 	.then(students => res.json(students));
 });
 
 // @route POST api/schools
@@ -22,8 +23,6 @@ router.post('/', (req, res) => {
 		"text": "this is from the server",
 		"messenger": theMessage
 	});
-
-	
 });
 
 module.exports = router;
