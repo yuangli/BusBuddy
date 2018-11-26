@@ -3,61 +3,52 @@ const Schema = mongoose.Schema;
 
 //Create Schema
 const StudentSchema = new Schema({
-	studentrfid:{
-		type: String,
-		required: true
-	},
-	studentDetails: [{
-		firstName:{
-			type: String,
-			required: false
-		},
-		lastName:{
-			type: String,
-			required: false
-		},
-		designatedStop:{
-			type: String,
-			required: false
-		}
-	}],
-	parentDetails: [{
-		firstName:{
-			type: String,
-			required: false
-		},
-		lastName:{
-			type: String,
-			required: false
-		},
-		phone:{
-			type: String,
-			required: false
-		}
-	}],
-	scans: [{
-		datetime:{
-			type: Date,
-			required: true,
-			default: Date.now
-		},
-		location:{
-			type: String,
-			required: false
-		},
-		buddyid:{
-			type: String,
-			required: false
-		},
-		registeredSchool:{
-			type: String,
-			required: false
-		},
-		registeredRoute:{
-			type: String,
-			required: false
-		}
-	}]
 });
 
-module.exports = Student = mongoose.model('student', StudentSchema);
+class User{
+	constructor(data){
+		this.data = data;
+	}
+
+	verify(){
+		return true;
+	}
+
+	getUserFirstName(){
+		return this.data["student-details"][0]['first-name'];
+	}
+
+	getUserLastName(){
+		return this.data["student-details"][0]['last-name'];
+	}
+
+	getUserFullName(){
+		return this.getUserFirstName() + ' ' + this.getUserLastName();
+	}
+
+	getParentPhone(){
+		return this.data["parent-details"][0].phone;
+	}
+
+	getParentFirstName(){
+		return this.data["parent-details"][0]['first-name'];
+	}
+
+	getParentLastName(){
+		return this.data["parent-details"][0]['last-name'];
+	}
+
+	getParentFullName(){
+		return this.getParentFirstName() + ' ' + this.getParentLastName();
+	}
+}
+
+module.exports = {
+	model: mongoose.model('student', StudentSchema),
+	user: User
+}
+
+// module.exports = mongoose.model('student', StudentSchema);
+
+
+
