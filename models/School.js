@@ -10,7 +10,13 @@ const SchoolSchema = new Schema({
 	dateAdded: {
 		type: Date,
 		default: Date.now
-	}
+	},
+	routes:[{
+		routeNum: String,
+		students: [{
+			type: String
+		}]
+	}]
 });
 
 module.exports = School = mongoose.model('school', SchoolSchema);
