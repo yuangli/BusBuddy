@@ -12,7 +12,10 @@ const JourneySchema = new Schema({
 		type: String,
 		required: true
 	},
-	isActive: {
+	schoolName:{
+		type: String
+	},
+	isActive:{
 		type: Boolean,
 		default: true
 	},
