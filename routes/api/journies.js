@@ -4,6 +4,8 @@ const JourneyModel = require('../../models/Journey');
 const SchoolModel = require('../../models/School');
 const DriverCardModel = require('../../models/Drivercard');
 const StudentModel = require('../../models/Student');
+const config = require('../../config/keys');
+const twilio = require('twilio')(config.TWILIO_SID, config.TWILIO_AUTH);
 
 function exists(data){
 	if (data.length != 0){
@@ -73,8 +75,10 @@ router.post('/', (req, res) => {
 		return new Promise((resolve, reject) => {
 			console.log(`Verifying school...`);
 			SchoolModel.find({ 'name' : school })
+				.populate()
 				.then( data => {
 					if (exists(data)){
+						console.log(data);
 						schoolId = data[0]._id;
 						resolve(true);
 					} else {
@@ -84,7 +88,6 @@ router.post('/', (req, res) => {
 				.catch(error => {
 					console.log(`${error}: Error getting registered schools.`);
 					return error;
-
 				}); 
 		})
 
@@ -104,11 +107,27 @@ router.post('/', (req, res) => {
 			console.log(`Verifying route...`);
 			SchoolModel.find({ 
 				'name' : school,
-				routes : {$elemMatch: {routeNum: routeNum}}
+				routes : {$elemMatch: {routeNum: routeNum}},
 			})
 				.then( data => {
 					if (exists(data)){
-						resolve(true);
+						//Make sure there isnt an active journey for this route
+							JourneyModel.find({ 
+								'schoolId' : schoolId,
+								'routeNum' : routeNum
+							})
+							.then(data => {
+								if ((data.length === 0)){
+									return resolve(data);
+								} else if (!data[0].isActive){
+									return resolve(data);
+								} else {
+									return reject('This route is currently activated! If you drove this route last, end it then restart it. If you did not drive this route last, please contact us to resolve this issue.');
+								}
+							})
+							.catch(err => {
+								return reject(err);
+							});
 					} else {
 						reject('Route not verified. Either it doesn\'t exist or not eligible with this school.');
 					}
@@ -138,21 +157,17 @@ router.post('/', (req, res) => {
 
 
 	function initializeJourney(){
-		SchoolModel.find({ 
+		let details = SchoolModel.find({ 
 			'name' : school
-		}).
-		where('routes.routeNum').equals(routeNum)
+		})
+		.where('routes.routeNum').equals(routeNum)
 		.then( data => {
 			if (exists(data)){
 				let schoolsRoutes = data[0].routes;
 				for (let i = 0; i < schoolsRoutes.length; i++){
-					console.log(schoolsRoutes[i]);
+					console.log('Searching for route...');
 					if (schoolsRoutes[i].routeNum == routeNum){
-						console.log('Bingo.');
-						let theRoute = schoolsRoutes[i];
-						journeyCreation(theRoute);
-					} else {
-						console.log('Searching for route...');
+						journeyCreation(schoolsRoutes[i]);
 					}
 				}
 			}
@@ -163,18 +178,30 @@ router.post('/', (req, res) => {
 
 		function journeyCreation(route){
 			console.log('Creating journey!');
-			console.log(route.students);
-			JourneyModel.create({
+			return new Promise((reject, resolve) =>{
+				JourneyModel.create({
 					driverId: cardid,
+					schoolName: school,
 					schoolId: schoolId,
 					isActive: true,
 					routeNum: routeNum,
 					allStudents: route.students
-			}, function (err){
-				if (err) return console.log(err);
-			});
+				}, function (err){
+					if (err){
+						return reject(err);
+					} else {
+						return resolve('Route created successfully.');
+					}
 
-			queryTest();
+				});
+			})
+			.then(message => {
+				console.log(message);
+				return notify();
+			})
+			.catch(err => {
+				return console.log(err);
+			});
 		}
 
 		function queryTest(){
@@ -185,7 +212,18 @@ router.post('/', (req, res) => {
 				console.log(data)
 			});
 		}
-		
+
+		function notify(){
+			console.log('Notifying parents!');
+			// twilio.messages
+			//   .create({
+			//      body: `${childFirst} just entered the bus safely! - BusBuddy`,
+			//      from: `+1${config.TWILIO_PHONE}`,
+			//      to: `+1${parentPhone}`
+			//    })
+			//   .then(message => console.log(message.sid))
+			//   .done();
+		}
 	}
 });
 

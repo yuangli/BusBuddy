@@ -14,6 +14,7 @@ const SchoolSchema = new Schema({
 	},
 	routes:[{
 		routeNum: String,
+		isActive: {type: Schema.Types.Boolean, ref: 'Journey'},
 		students: [{ type: Schema.Types.ObjectId, ref: 'Student'}]
 	}]
 });
