@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
 //Create Schema
 const JourneySchema = new Schema({
 	driverId:{
@@ -11,15 +12,19 @@ const JourneySchema = new Schema({
 		type: String,
 		required: true
 	},
+	isActive: {
+		type: Boolean,
+		default: true
+	},
 	routeNum:{
 		type: Number,
 		required: true
 	},
 	allStudents:{
-		type: [Number]
+		type: [{ type: Schema.Types.ObjectId, ref: 'Student'}]
 	},
 	scannedStudents:{
-		type: [Number]
+		type: [{ type: Schema.Types.ObjectId, ref: 'Student'}]
 	},
 	timeStarted: {
 		type: Date,

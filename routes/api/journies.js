@@ -3,6 +3,7 @@ const router = express.Router();
 const JourneyModel = require('../../models/Journey');
 const SchoolModel = require('../../models/School');
 const DriverCardModel = require('../../models/Drivercard');
+const StudentModel = require('../../models/Student');
 
 function exists(data){
 	if (data.length != 0){
@@ -12,15 +13,15 @@ function exists(data){
 	}
 }
 
-// @route GET api/schools
-// @desc Get all schools
+// @route GET api/journies
+// @desc Get all journies
 // @access Public (for now)
 router.get('/', (req, res) => {
 	JourneyModel.find().then( data => res.json(data));
 });
 
-// @route POST api/schools
-// @desc Add a school
+// @route POST api/journies
+// @desc Add a journey
 // @access Public (for now)
 router.post('/', (req, res) => {
 	
@@ -120,6 +121,7 @@ router.post('/', (req, res) => {
 
 		.then((value) =>{
 			console.log(`Route verified!`);
+			initializeJourney();
 			return res.json('Success.');
 		})
 
@@ -134,15 +136,57 @@ router.post('/', (req, res) => {
 	//Set status of students to bus incoming
 	//Send notification to each parent
 
-	// function initializeJourney(){
-	// 	JourneyModel.create({
-	// 		driverId: cardid,
-	// 		schoolId: schoolId,
-	// 		routeNum: routeNum,
-	// 		allStudents: 
-	// 		timeStarted: 
-	// 	});
-	// }
+
+	function initializeJourney(){
+		SchoolModel.find({ 
+			'name' : school
+		}).
+		where('routes.routeNum').equals(routeNum)
+		.then( data => {
+			if (exists(data)){
+				let schoolsRoutes = data[0].routes;
+				for (let i = 0; i < schoolsRoutes.length; i++){
+					console.log(schoolsRoutes[i]);
+					if (schoolsRoutes[i].routeNum == routeNum){
+						console.log('Bingo.');
+						let theRoute = schoolsRoutes[i];
+						journeyCreation(theRoute);
+					} else {
+						console.log('Searching for route...');
+					}
+				}
+			}
+		})
+		.catch(err => {
+			console.log(err);
+		});
+
+		function journeyCreation(route){
+			console.log('Creating journey!');
+			console.log(route.students);
+			JourneyModel.create({
+					driverId: cardid,
+					schoolId: schoolId,
+					isActive: true,
+					routeNum: routeNum,
+					allStudents: route.students
+			}, function (err){
+				if (err) return console.log(err);
+			});
+
+			queryTest();
+		}
+
+		function queryTest(){
+			console.log('Testing query!');
+			JourneyModel.find()
+			.populate('allStudents')
+			.then(data =>{
+				console.log(data)
+			});
+		}
+		
+	}
 });
 
 module.exports = router;

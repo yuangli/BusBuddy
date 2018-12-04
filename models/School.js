@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const Student = require('./Student');
 
 //Create Schema
 const SchoolSchema = new Schema({
@@ -13,9 +14,7 @@ const SchoolSchema = new Schema({
 	},
 	routes:[{
 		routeNum: String,
-		students: [{
-			type: String
-		}]
+		students: [{ type: Schema.Types.ObjectId, ref: 'Student'}]
 	}]
 });
 

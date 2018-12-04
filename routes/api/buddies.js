@@ -3,7 +3,7 @@ const router = express.Router();
 const config = require('../../config/keys');
 const twilio = require('twilio')(config.TWILIO_SID, config.TWILIO_AUTH);
 
-const StudentModule = require('../../models/Students');
+const StudentModule = require('../../models/Student');
 const StudentModel = StudentModule.model;
 const Student = StudentModule.user;
 
