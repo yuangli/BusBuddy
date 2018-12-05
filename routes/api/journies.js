@@ -104,6 +104,7 @@ router.post('/start', (req, res) => {
 	function routeVerify(){
 		return new Promise((resolve, reject) => {
 			console.log(`Verifying route...`);
+			//Make sure this route exists under the said school
 			SchoolModel.find({ 
 				'name' : school,
 				routes : {$elemMatch: {routeNum: routeNum}},
@@ -153,13 +154,14 @@ router.post('/start', (req, res) => {
 	//Set status of students to bus incoming
 	//Send notification to each parent
 
-
+	
 	function initializeJourney(){
-		let details = SchoolModel.find({ 
+		let studentData;
+		SchoolModel.find({ 
 			'name' : school
 		})
 		.where('routes.routeNum').equals(routeNum)
-		.populate('students')
+		.populate('routes.students')
 		.then( data => {
 			if (exists(data)){
 				let schoolsRoutes = data[0].routes;
@@ -167,6 +169,7 @@ router.post('/start', (req, res) => {
 					console.log('Searching for route...');
 					if (schoolsRoutes[i].routeNum == routeNum){
 						journeyCreation(schoolsRoutes[i]);
+						studentData = data;
 					}
 				}
 			}
@@ -177,7 +180,7 @@ router.post('/start', (req, res) => {
 
 		function journeyCreation(route){
 			console.log('Creating journey!');
-			return new Promise((reject, resolve) =>{
+			return new Promise((resolve, reject) =>{
 				JourneyModel.create({
 					driverId: cardid,
 					schoolName: school,
@@ -195,9 +198,8 @@ router.post('/start', (req, res) => {
 				});
 			})
 			.then(message => {
-				console.log('in here');
 				console.log(message);
-				return notify;
+				return notify();
 			})
 			.catch(err => {
 				return console.log(err);
@@ -215,7 +217,24 @@ router.post('/start', (req, res) => {
 
 		function notify(){
 			console.log('Notifying parents!');
-			console.log(details);
+			//Loops through each childs details and sends text to parent number
+			studentData[0].routes.map((value, index) =>{
+				if (value.routeNum == routeNum){
+					for (let i = 0; i < value.students.length; i++){
+						let parentPhone = value.students[0].parentDetails[0].phone;
+						let childName = value.students[0].studentDetails[0].firstName;
+						console.log(`Sending notification to ${childName}\'s parent @ ${parentPhone}`);
+						twilio.messages
+						  .create({
+						     body: `Here we come! ${childName}\'s bus is in your area and will be arriving within minutes. Open the BusBuddy webapp to see exactly where it is. BusBuddy.com/view`,
+						     from: `+1${config.TWILIO_PHONE}`,
+						     to: `+1${parentPhone}`
+						   })
+						  .then(message => console.log(message.sid))
+						  .done();
+					}
+				}
+			});
 			// twilio.messages
 			//   .create({
 			//      body: `${childFirst} just entered the bus safely! - BusBuddy`,
