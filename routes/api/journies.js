@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
 // @route POST api/journies
 // @desc Add a journey
 // @access Public (for now)
-router.post('/', (req, res) => {
+router.post('/start', (req, res) => {
 	
 	const cardid = req.body.cardid;
 	const school = req.body.school;
@@ -78,7 +78,6 @@ router.post('/', (req, res) => {
 				.populate()
 				.then( data => {
 					if (exists(data)){
-						console.log(data);
 						schoolId = data[0]._id;
 						resolve(true);
 					} else {
@@ -114,15 +113,14 @@ router.post('/', (req, res) => {
 						//Make sure there isnt an active journey for this route
 							JourneyModel.find({ 
 								'schoolId' : schoolId,
-								'routeNum' : routeNum
+								'routeNum' : routeNum,
+								'isActive' : true
 							})
 							.then(data => {
-								if ((data.length === 0)){
-									return resolve(data);
-								} else if (!data[0].isActive){
-									return resolve(data);
+								if (data.length != 0){
+									reject('This route is currently activated! If you drove this route last, end it then restart it. If you did not drive this route last, please contact us to resolve this issue.')
 								} else {
-									return reject('This route is currently activated! If you drove this route last, end it then restart it. If you did not drive this route last, please contact us to resolve this issue.');
+									return resolve(data);
 								}
 							})
 							.catch(err => {
@@ -161,6 +159,7 @@ router.post('/', (req, res) => {
 			'name' : school
 		})
 		.where('routes.routeNum').equals(routeNum)
+		.populate('students')
 		.then( data => {
 			if (exists(data)){
 				let schoolsRoutes = data[0].routes;
@@ -190,14 +189,15 @@ router.post('/', (req, res) => {
 					if (err){
 						return reject(err);
 					} else {
-						return resolve('Route created successfully.');
+						return resolve('Journey created successfully.');
 					}
 
 				});
 			})
 			.then(message => {
+				console.log('in here');
 				console.log(message);
-				return notify();
+				return notify;
 			})
 			.catch(err => {
 				return console.log(err);
@@ -215,6 +215,7 @@ router.post('/', (req, res) => {
 
 		function notify(){
 			console.log('Notifying parents!');
+			console.log(details);
 			// twilio.messages
 			//   .create({
 			//      body: `${childFirst} just entered the bus safely! - BusBuddy`,
@@ -226,5 +227,40 @@ router.post('/', (req, res) => {
 		}
 	}
 });
+
+router.post('/end', (req, res) => {
+	//Simulated request body
+	// {
+	// 	"cardid": "123456",
+	// 	"school": "South Brunswick High School",
+	// 	"route": "82",
+	// 	"buddy": "SereneOasis"
+	// }
+	
+	const cardid = req.body.cardid;
+	const school = req.body.school;
+	const routeNum = req.body.route;
+	const buddyId = req.body.buddy;
+
+	console.log(school, routeNum);
+
+	JourneyModel.updateOne({ 
+		"schoolName" : school,
+		"routeNum": routeNum,
+		"isActive": true
+	}, { isActive: false }, (err, numAffected) => {
+		
+		if (err) return res.send('Error!: ', err);
+		
+		let message = `Successfully updated active status of route ${routeNum} of ${school}`
+		console.log(message);
+		res.send(message);
+	});
+
+
+
+
+});
+
 
 module.exports = router;
