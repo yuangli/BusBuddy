@@ -7,7 +7,8 @@ module.exports = {
 		//When making a new page, add its js path here
 		style1: './src/sass/app.scss',
 		home1: './src/js/Home.js',
-		user1: './src/js/User.js'
+		user1: './src/js/User.js',
+		testBackend: './src/js/backendTest.js'
 	},
 	
 	output: {

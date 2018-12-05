@@ -2,10 +2,7 @@ const express = require('express');
 const router = express.Router();
 const config = require('../../config/keys');
 const twilio = require('twilio')(config.TWILIO_SID, config.TWILIO_AUTH);
-
-const StudentModule = require('../../models/Students');
-const StudentModel = StudentModule.model;
-const Student = StudentModule.user;
+const Student = require('../../models/Student');
 
 // @route GET api/schools
 // @desc Get all schools
@@ -28,7 +25,7 @@ router.post('/', (req, res) => {
 		"messenger": studentID
 	});
 	
-	StudentModel.find( { studentrfid: studentID } )
+	Student.find( { studentrfid: studentID } )
 	.then(students => {
 		//Make the data parseable
 		let tmp = JSON.stringify(students);
@@ -40,31 +37,22 @@ router.post('/', (req, res) => {
 		data = (data[0]) ? data[0] : data;
 
 		//Send to execute function if not empty and valid
-		(Object.keys(data).length !== 0 && data.constructor === Object) ? execute(data) : empty(); 
+		(Object.keys(data).length !== 0 && data.constructor === Object) ? execute(data) : console.log(`We couldn't find that BuddyID`); 
 	});
 	
 	//What to do if buddy is scanned and RFID exists in our DB
 	function execute(result){
-		let user = new Student(result);
-		
-		console.log(user.verify());
-		console.log(user.getParentPhone());
-		console.log(user.getParentFullName());
-		console.log(user.getUserFullName());
+		let childName = result.studentDetails[0].firstName;
+		let parentPhone = result.parentDetails[0].phone;
 
-		sendSuccessMessage(user.getUserFirstName(), user.getParentPhone());
-	}
-	
-	//What to do when RFID doesnt exist in DB
-	function empty(){
-		console.log(`We couldn't find that BuddyID`);
+		return sendSuccessMessage(childName, parentPhone);
 	}
 
 	function sendSuccessMessage(childFirst, parentPhone){
 		console.log(`Sending message to ${childFirst}'s parent...`);
 		twilio.messages
 		  .create({
-		     body: `${childFirst} just entered the bus safely! - BusBuddy`,
+		     body: `Off to school! ${childFirst} has boarded their bus! \n\nOpen the BusBuddy webapp to see exactly where it is. BusBuddy.com/view`,
 		     from: `+1${config.TWILIO_PHONE}`,
 		     to: `+1${parentPhone}`
 		   })
