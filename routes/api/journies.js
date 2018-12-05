@@ -223,10 +223,12 @@ router.post('/start', (req, res) => {
 					for (let i = 0; i < value.students.length; i++){
 						let parentPhone = value.students[0].parentDetails[0].phone;
 						let childName = value.students[0].studentDetails[0].firstName;
+						
 						console.log(`Sending notification to ${childName}\'s parent @ ${parentPhone}`);
+						
 						twilio.messages
 						  .create({
-						     body: `Here we come! ${childName}\'s bus is in your area and will be arriving within minutes. Open the BusBuddy webapp to see exactly where it is. BusBuddy.com/view`,
+						     body: `Here we come! ${childName}\'s bus is in your area and will be arriving within minutes. \n\nOpen the BusBuddy webapp to see exactly where it is. BusBuddy.com/view`,
 						     from: `+1${config.TWILIO_PHONE}`,
 						     to: `+1${parentPhone}`
 						   })
@@ -235,14 +237,6 @@ router.post('/start', (req, res) => {
 					}
 				}
 			});
-			// twilio.messages
-			//   .create({
-			//      body: `${childFirst} just entered the bus safely! - BusBuddy`,
-			//      from: `+1${config.TWILIO_PHONE}`,
-			//      to: `+1${parentPhone}`
-			//    })
-			//   .then(message => console.log(message.sid))
-			//   .done();
 		}
 	}
 });
@@ -275,10 +269,6 @@ router.post('/end', (req, res) => {
 		console.log(message);
 		res.send(message);
 	});
-
-
-
-
 });
 
 
