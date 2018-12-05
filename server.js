@@ -39,7 +39,12 @@ app.use(express.static('client/build'));
 
 app.get('/', (req, res) =>{
 	res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-})
+});
+
+app.get('/heckyeah', (req, res) =>{
+	res.sendFile(path.resolve(__dirname, 'client', 'build', 'views', 'backendprototype.html'));
+});
+
 app.use('/api/schools', schools);
 app.use('/api/buddies', buddies);
 app.use('/api/journies', journies);

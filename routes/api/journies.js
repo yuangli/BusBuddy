@@ -148,12 +148,6 @@ router.post('/start', (req, res) => {
 			return res.json(error);
 		});  
 	}
-
-	//Create new journey
-	//Link students to journey
-	//Set status of students to bus incoming
-	//Send notification to each parent
-
 	
 	function initializeJourney(){
 		let studentData;
@@ -218,11 +212,12 @@ router.post('/start', (req, res) => {
 		function notify(){
 			console.log('Notifying parents!');
 			//Loops through each childs details and sends text to parent number
+			// console.log(studentData[0].routes);
 			studentData[0].routes.map((value, index) =>{
 				if (value.routeNum == routeNum){
 					for (let i = 0; i < value.students.length; i++){
-						let parentPhone = value.students[0].parentDetails[0].phone;
-						let childName = value.students[0].studentDetails[0].firstName;
+						let parentPhone = value.students[i].parentDetails[0].phone;
+						let childName = value.students[i].studentDetails[0].firstName;
 						
 						console.log(`Sending notification to ${childName}\'s parent @ ${parentPhone}`);
 						
@@ -254,8 +249,6 @@ router.post('/end', (req, res) => {
 	const school = req.body.school;
 	const routeNum = req.body.route;
 	const buddyId = req.body.buddy;
-
-	console.log(school, routeNum);
 
 	JourneyModel.updateOne({ 
 		"schoolName" : school,
