@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Assistant|Comfortaa" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+    h1,h2,h3{
+        font-family: 'Comfortaa', sans-serif;
+    }
+
+
+    .c-forms{
+        margin: 1rem 0;
+    }
+
+    *{
+    /* Border for developing */
+        /* border-style: solid;
+        border-width: 1px;
+        border-color: rgb(0, 80, 252); */
+    }
+    main{
+        background-color: #3271CA;
+        color: white;
+    }
+    </style>
+    <title>BusBuddy | Home</title>
+</head>
+<div id="root"></div>
+
+<body>
+    <div id="app"></div>
+    <header class="l-signInUp-header">
+    </header>
+    <main class="l-signInUp-main">
+        <div class="c-title">
+            <h1>Sign Up</h1>
+        </div>
+        <div class="c-progress-bar">
+            <svg width="157px" height="13px" viewBox="0 0 157 13" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="sign-up-p1" transform="translate(-83.000000, -237.000000)" fill-rule="nonzero">
+                        <g id="Group-3" transform="translate(83.000000, 237.000000)">
+                            <path d="M6.5,6 L148.5,6" id="Line-2" stroke="#B9B9B9" stroke-width="3" stroke-linecap="square"></path>
+                            <circle id="Oval" fill="#FDC03E" cx="6.5" cy="6.5" r="6.5"></circle>
+                            <circle id="Oval-Copy-2" fill="#B9B9B9" cx="54.5" cy="6.5" r="6.5"></circle>
+                            <circle id="Oval-Copy-3" fill="#B9B9B9" cx="102.5" cy="6.5" r="6.5"></circle>
+                            <circle id="Oval-Copy" fill="#B9B9B9" cx="150.5" cy="6.5" r="6.5"></circle>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+        </div>
+        <div class="c-subTitle">
+            <h3>I am a ...</h3>
+        </div>
+        <div class="c-content c-ui-map">
+            <form class="c-forms c-users-toggle">
+                <input type="radio" name="users" value="parent"> Parent
+                <input type="radio" name="users" value="driver"> Driver
+                <input type="radio" name="users" value="student"> Student
+            </form>
+
+            <form class="c-forms c-general-info" action="">
+                <h3>
+                    General Info
+                </h3>
+                <input type="text" name="name" placeholder="User Name"><br>
+                <input type="password" name="password" placeholder="Password"><br><br>
+                <input type="submit" value="Submit">
+            </form>
+
+            <form class="c-forms c-login-info" action="">
+                <h3>
+                    Login Information
+                </h3>
+                <input type="text" name="email" placeholder="Email"><br>
+                <input type="password" name="password" placeholder="Password"><br>
+                <input type="password" name="confirm" placeholder="Confirm Password"><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </main>
+    <footer class="l-signInUp-footer">
+    </footer>
+
+    <script type="text/javascript" src="js/home-bundle.js"></script>
+</body>
+
+</html>
