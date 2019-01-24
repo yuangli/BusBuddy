@@ -17,18 +17,25 @@
     <div class="c-header-text">Dashboard</div>
         <nav class="c-top-nav">
             <ul class="c-top-nav__submenu">
-                <li>Mike</li>
-                <li>Sarah</li>
-                <li>Craig</li>
+                <li><span class="dot"></span> Mike</li>
+                <li><span class="dot dot-active"></span> Sarah</li>
+                <li><span class="dot"></span> Craig</li>
             </ul>
         </nav>
 </header>
 <main class="l-dashboard-main">
     <div class="c-eta-text">
+        <div class="c-eta-text__text">ETA</div>
         <div class="c-eta-text__timer">7:32</div>
+        <span class="c-eta-text__meridiem">am</span>
     </div>
-    <div class="c-status-box">The bus is on its way.</div>
-    <div class="c-timeline"></div>
+    <div class="c-status-box c-status-box__neutral">The bus is on its way.</div>
+    <div class="arrow-down"></div>
+    <ul class="c-timeline">
+        <li class="c-timeline__item c-timeline__home"></li>
+        <li class="c-timeline__item c-timeline__bus"></li>
+        <li class="c-timeline__item c-timeline__bus"></li>
+    </ul>
 
     <div class="c-driver-info">
         <div class="c-driver-info__label"><strong>Driver:</strong></div>
@@ -44,5 +51,10 @@
         <div class="c-student-info__location"><b>Pick-up location:  </b>
                 Jackson st & Fillmore St</div>
     </div>
+
+    <button class="c-btn-detail-view">Details</button>
 </body>
+
+<!-- <div class="c-status-box c-status-box__negative">No scan; bus has left the stop.</div>
+<div class="c-status-box c-status-box__positive">The bus has arrived at school.</div> -->
 </html>
