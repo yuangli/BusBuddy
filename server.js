@@ -31,7 +31,8 @@ mongoose
 
 // Express session
 const sessionMiddleware = session({
-    secret: process.env.SESSION_SECRET,
+    // secret: process.env.SESSION_SECRET,
+    secret: 'hello',
     resave: true,
     saveUninitialized: true,
     rolling: true,
@@ -73,6 +74,16 @@ app.get('/heckyeah', ensureAuthenticated, (req, res) =>{
 	res.sendFile(path.resolve(__dirname, 'client', 'build', 'views', 'backendprototype.html'));
 });
 
+app.get('/go', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'views', 'landing.html'));
+});
+
+app.get('/dashboard', ensureAuthenticated, (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'views', 'dashboard.html'));
+});
+
+
+
 app.use('/register', require('./routes/api/RegisterController'));
 app.use('/login', require('./routes/api/LoginController'));
 app.use('/logout', require('./routes/api/LogoutController'));
@@ -80,6 +91,7 @@ app.use('/logout', require('./routes/api/LogoutController'));
 app.use('/api/schools', schools);
 app.use('/api/buddies', buddies);
 app.use('/api/journies', journies);
+app.use('/api/users', require('./routes/api/UserController'));
 
 
 const port = process.env.PORT || 5000;

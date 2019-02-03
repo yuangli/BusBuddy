@@ -1,0 +1,115 @@
+/* ! PUTTING STYLES HERE FOR NOW NOT PERMANENT!!! */
+
+body {
+
+    font-family: 'Assistant', sans-serif;
+    max-width: 440px;
+    margin: 0 auto;
+    background: #F9FEFF;
+    border: 1px solid #000;
+    border-radius: 25px;
+    color: #032A4A;
+}
+
+main {
+
+    background-color: #fff;
+    border-radius: 15px;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    padding: 1em;
+}
+
+.c-header-text {
+
+
+    font-size: 3em;
+    padding: 0.5em;
+    text-align: center;
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: bold;
+}
+
+nav ul {
+
+    list-style-type: none;
+    text-align: center;
+    margin: 0 auto;
+    padding-left: 0;
+    width: 380px; 
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+nav ul li {
+
+    display: inline-block;
+    padding: 0.5em 0 0.5em 0.5em;
+    width: 30%;
+    font-family: 'Comfortaa', sans-serif;
+
+}
+
+nav ul li:nth-child(even) {
+
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    background-color: #dfdfdf;
+}
+
+.c-eta-text {
+
+    text-align: right;
+    padding: 1em;
+}
+
+.c-eta-text__timer {
+
+    font-size: 4em;
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: bold;
+    text-align: right;
+
+}
+
+.c-status-box {
+
+    padding: 1em 1em;
+    font-size: 1.25em;
+    width: 150px;
+    font-family: 'Comfortaa';
+    color: #fdc03e;
+    background-color: rgb(249, 249, 249);
+    display: inline-block;
+    border-radius: 15px;
+    margin-bottom: 2em;
+
+
+}
+
+
+.c-btn-map-view {
+
+    float: right;
+    border: none;
+    font-size: 1em;
+    padding: 0.75em 2em 0.75em 2em;
+    background-color: #FDC03E;
+    border-radius: 10px;
+    font-family: 'Comfortaa';
+}
+
+.c-student-info {
+
+    padding: 1em;
+    font-size: 1.15em;
+    padding-bottom: 2em;
+}
+
+.c-subheader {
+
+    padding: 1.5em;
+    font-family: 'Comfortaa';
+    font-weight: bold;
+    font-size: 1.25em;
+}

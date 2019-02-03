@@ -8,6 +8,7 @@ module.exports = {
 		style1: './src/sass/app.scss',
 		home1: './src/js/Home.js',
 		user1: './src/js/User.js',
+		dashboard: './src/js/Dashboard.js',
 		testBackend: './src/js/backendTest.js'
 	},
 	
