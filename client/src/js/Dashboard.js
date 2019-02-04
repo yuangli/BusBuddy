@@ -75,29 +75,37 @@ class App extends React.Component{
 			var kidsList = this.state.data.children.map((value, index) => {
 				console.log(value);
 				return(
-					<li onClick={this.setActiveChild.bind(this, index)}>{value.name}</li>
+					<li onClick={this.setActiveChild.bind(this, index)}><span className="dot"></span>{value.name}</li>
 				);
 			})
 		}	
 
-
-		
 		return(
 			<div>
-				<header className="l-dashboard-header">
+		 		<header className="l-dashboard-header">
+				    <a href="settings.html" ><img className="c-gear" src="img/gear.svg" alt="gear" /></a>
 				    <div className="c-header-text">Dashboard</div>
 				        <nav className="c-top-nav">
 				            <ul className="c-top-nav__submenu">
-				                { kidsList }
+				               
+				                {kidsList}
+
 				            </ul>
 				        </nav>
 				</header>
 				<main className="l-dashboard-main">
 				    <div className="c-eta-text">
-				        <div className="c-eta-text__timer">{ time }</div>
+				        <div className="c-eta-text__text">ETA</div>
+				        <div className="c-eta-text__timer">{scheduled}</div>
+				        <span className="c-eta-text__meridiem">am</span>
 				    </div>
-				    <div className="c-status-box">{ status }</div>
-				    <div className="c-timeline"></div>
+				    <div className="c-status-box c-status-box__neutral">{ status }</div>
+				    <div className="arrow-down"></div>
+				    <ul className="c-timeline">
+				        <li className="c-timeline__item c-timeline__home"></li>
+				        <li className="c-timeline__item c-timeline__bus"></li>
+				        <li className="c-timeline__item c-timeline__bus"></li>
+				    </ul>
 
 				    <div className="c-driver-info">
 				        <div className="c-driver-info__label"><strong>Driver:</strong></div>
@@ -108,17 +116,19 @@ class App extends React.Component{
 
 				</main>
 
-				    <div className="c-student-info">
-				        <div className="c-student-info__pickup"><b>Scheduled Pick-up Time:  </b>{ scheduled }</div>
-				        <div className="c-student-info__location"><b>Pick-up location:  </b>
-				                { pickup }</div>
-	 				</div>
-	 		</div>
+			    <div className="c-student-info">
+			        <div className="c-student-info__pickup"><b>Scheduled Pick-up Time:  </b> 7:20am</div>
+			        <div className="c-student-info__location"><b>Pick-up location:  </b>
+			               {pickup} </div>
+			    </div>
+
+			    <button className="c-btn-detail-view" onclick="window.location.href='details.html'">Details</button>
+			</div>
 		)
 	}	
 }
 
 ReactDOM.render(
-  <App>Hello</App>,
+  <App></App>,
   document.getElementById('root')
 );

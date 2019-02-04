@@ -3,6 +3,7 @@ const router = express.Router();
 const config = require('../../config/keys');
 const twilio = require('twilio')(config.TWILIO_SID, config.TWILIO_AUTH);
 const Student = require('../../models/Student');
+const Location = require('../../models/Location');
 
 // @route GET api/schools
 // @desc Get all schools
@@ -59,6 +60,34 @@ router.post('/', (req, res) => {
 		  .then(message => console.log(message.sid))
 		  .done();
 	}
+});
+
+//https://serene-oasis-62993.herokuapp.com/api/buddies/data
+//POST
+router.post('/data', (req, res) => {
+	
+	const data = req.body.data;
+	console.log(data);
+	//Save to DB
+	
+	Location.create({
+		x : data.x,
+		y : data.y
+	});
+
+	res.sendStatus(201);
+});
+
+router.get('/data', (req, res) => {
+	//Get from db
+	//Return it
+
+	Location
+		.find({})
+		.sort({createdAt: -1})
+		.limit(1)
+		.then(data => { res.json(data) })
+		.catch(err => console.log(err));
 });
 
 module.exports = router;
