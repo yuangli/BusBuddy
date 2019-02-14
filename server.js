@@ -82,6 +82,9 @@ app.get('/dashboard', ensureAuthenticated, (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'views', 'dashboard.html'));
 });
 
+app.get('/map', ensureAuthenticated, (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'views', 'map.html'));
+});
 
 
 app.use('/register', require('./routes/api/RegisterController'));

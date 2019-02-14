@@ -5,6 +5,8 @@ import axios from 'axios';
 class App extends React.Component{
 	constructor(props) {
 	    super(props);
+	    this.goMap = this.goMap.bind(this);
+
 	    
 	    this.state = {
 			activeChild : 0,
@@ -54,13 +56,30 @@ class App extends React.Component{
 		this.setState({ activeChild: index });
 	}
 
+	goMap(){
+		console.log(this.state);
+		if (this.state.data.children[this.state.activeChild].status === "Not on bus"){
+			alert('Your child is not currently on a bus.');
+		} else {
+			window.location.replace('/map');
+		}
+	}
+
+	setColors(){
+		
+	}
+
 	render(){
 		if (this.state.data === null){
 			var time = <span></span>;
 			var status = <span></span>;
 			var scheduled = <span></span>;
 			var pickup = <span></span>;
-			var kidsList = <span></span>;
+			var kidsList = <span>
+				<li><h2 className="dot"></h2></li>
+				<li><h2 className="dot"></h2></li>
+				<li><h2 className="dot"></h2></li>
+			</span>;
 
 		} else {
 			console.log(this.state.data);
@@ -73,11 +92,25 @@ class App extends React.Component{
 			// var kidsList = <KidsList data={this.state.data} />
 
 			var kidsList = this.state.data.children.map((value, index) => {
-				console.log(value);
 				return(
 					<li onClick={this.setActiveChild.bind(this, index)}><span className="dot"></span>{value.name}</li>
 				);
-			})
+			});
+			
+			setTimeout(function(){
+				var statuses = [this.state.data.children[0], this.state.data.children[1], this.state.data.children[2]];
+				statuses.map((value, index) => {
+					console.log(document.getElementsByClassName('dot')[index].style.backgroundColor);
+					if (value.status === 'Not on bus'){
+						document.getElementsByClassName('dot')[index].style.backgroundColor = 'red';
+					} else if (value.status === 'Bus is on its way'){
+						document.getElementsByClassName('dot')[index].style.backgroundColor = 'yellow';
+					} else {
+						document.getElementsByClassName('dot')[index].style.backgroundColor = 'green';
+					}
+				});
+			}, 3000);
+			
 		}	
 
 		return(
@@ -112,7 +145,7 @@ class App extends React.Component{
 				        <div className="c-driver-info__text">Kendansha Wood <br /> VXP-312</div>
 				    </div>
 
-				    <button className="c-btn-map-view">Map View</button>
+				    <button onClick={this.goMap} className="c-btn-map-view">Map View</button>
 
 				</main>
 
