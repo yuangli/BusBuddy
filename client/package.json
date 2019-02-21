@@ -11,7 +11,8 @@
     "dev": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.js",
     "copyviews": "start ../scripts/copy-views.sh",
     "copyfonts": "start ../scripts/copy-fonts.sh",
-    "copyassets": "npm run copyviews & npm run copyfonts"
+    "copyassets": "npm run copyviews & npm run copyfonts & npm run copyimg",
+    "copyimg": "start ../scripts/copy-img.sh"
   },
   "author": "Bus Buddy",
   "license": "ISC",
