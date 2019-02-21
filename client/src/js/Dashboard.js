@@ -54,6 +54,18 @@ class App extends React.Component{
 
 	setActiveChild(index, num){
 		this.setState({ activeChild: index });
+		
+		console.log("index: ", index);
+
+		var kidsArr = document.getElementsByClassName("kidsss");
+		console.log(kidsArr);
+		
+
+		Array.prototype.forEach.call(kidsArr, child => {
+		  	child.classList.remove("child-selected");
+		});
+
+		kidsArr[index].classList.add("child-selected")
 	}
 
 	goMap(){
@@ -67,6 +79,14 @@ class App extends React.Component{
 
 	setColors(){
 		
+	}
+
+	goSettings(){
+		window.location.replace('/settings');
+	}
+
+	goDetails(){
+		window.location.replace('/details');
 	}
 
 	render(){
@@ -92,37 +112,23 @@ class App extends React.Component{
 			// var kidsList = <KidsList data={this.state.data} />
 
 			var kidsList = this.state.data.children.map((value, index) => {
-				return(
-					<li onClick={this.setActiveChild.bind(this, index)}><span className="dot"></span>{value.name}</li>
-				);
+				if (index === 0){
+					return( <li className="kidsss child-selected" onClick={this.setActiveChild.bind(this, index)}><span className="dot"></span>{value.name}</li> )
+				} else { 
+					return(
+						<li className="kidsss" onClick={this.setActiveChild.bind(this, index)}><span className="dot"></span>{value.name}</li>
+				)}
 			});
-			
-			setTimeout(function(){
-				var statuses = [this.state.data.children[0], this.state.data.children[1], this.state.data.children[2]];
-				statuses.map((value, index) => {
-					console.log(document.getElementsByClassName('dot')[index].style.backgroundColor);
-					if (value.status === 'Not on bus'){
-						document.getElementsByClassName('dot')[index].style.backgroundColor = 'red';
-					} else if (value.status === 'Bus is on its way'){
-						document.getElementsByClassName('dot')[index].style.backgroundColor = 'yellow';
-					} else {
-						document.getElementsByClassName('dot')[index].style.backgroundColor = 'green';
-					}
-				});
-			}, 3000);
-			
 		}	
 
 		return(
 			<div>
-		 		<header className="l-dashboard-header">
-				    <a href="settings.html" ><img className="c-gear" src="img/gear.svg" alt="gear" /></a>
+				<header className="l-dashboard-header">
+				    <a onClick={this.goSettings}><img className="c-gear" src="img/gear.svg" alt="gear" /></a>
 				    <div className="c-header-text">Dashboard</div>
 				        <nav className="c-top-nav">
 				            <ul className="c-top-nav__submenu">
-				               
 				                {kidsList}
-
 				            </ul>
 				        </nav>
 				</header>
@@ -132,13 +138,20 @@ class App extends React.Component{
 				        <div className="c-eta-text__timer">{scheduled}</div>
 				        <span className="c-eta-text__meridiem">am</span>
 				    </div>
-				    <div className="c-status-box c-status-box__neutral">{ status }</div>
+				    <div className="c-status-box c-status-box__neutral">{status}</div>
 				    <div className="arrow-down"></div>
-				    <ul className="c-timeline">
-				        <li className="c-timeline__item c-timeline__home"></li>
-				        <li className="c-timeline__item c-timeline__bus"></li>
-				        <li className="c-timeline__item c-timeline__bus"></li>
-				    </ul>
+				    <div className="c-timeline a-timeline">
+				        <span style={{width: "60%"}}></span>
+				        <div className="c-timeline__item c-timeline__home animation">
+				            <img className="c-timeline__image" src="img/school_bus.svg" alt="School Bus" />
+				        </div>
+				        <div className="c-timeline__item c-timeline__bus animation">
+				            <img className="c-timeline__image-2" src="img/profile.svg" alt="Profile" />
+				        </div>
+				        <div className="c-timeline__item c-timeline__bus school">
+				            <img className="c-timeline__image-3" src="img/school.svg" alt="School" />
+				        </div>
+				    </div>
 
 				    <div className="c-driver-info">
 				        <div className="c-driver-info__label"><strong>Driver:</strong></div>
@@ -152,10 +165,10 @@ class App extends React.Component{
 			    <div className="c-student-info">
 			        <div className="c-student-info__pickup"><b>Scheduled Pick-up Time:  </b> 7:20am</div>
 			        <div className="c-student-info__location"><b>Pick-up location:  </b>
-			               {pickup} </div>
+			                {pickup}</div>
 			    </div>
 
-			    <button className="c-btn-detail-view" onclick="window.location.href='details.html'">Details</button>
+			    <button className="c-btn-detail-view" onClick={this.goDetails}>Details</button>
 			</div>
 		)
 	}	

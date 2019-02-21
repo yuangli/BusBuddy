@@ -11,7 +11,7 @@ const jwt = require('jsonwebtoken');
 */
 
 router.get('/', (req, res) => {
-	res.sendFile('/client/build/views/testlogin.html', { root: './'});
+	res.sendFile('/client/build/views/login.html', { root: './'});
 	// res.sendFile('/client/build/signInUp.html', { root: './'});
 });
 

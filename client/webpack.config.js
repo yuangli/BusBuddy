@@ -9,7 +9,10 @@ module.exports = {
 		home1: './src/js/Home.js',
 		user1: './src/js/User.js',
 		dashboard: './src/js/Dashboard.js',
-		testBackend: './src/js/backendTest.js'
+		testBackend: './src/js/backendTest.js',
+		login: './src/js/Login.js',
+		settings: './src/js/Settings.js',
+		details: './src/js/Details.js'
 	},
 	
 	output: {

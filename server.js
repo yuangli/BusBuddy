@@ -86,6 +86,14 @@ app.get('/map', ensureAuthenticated, (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'views', 'map.html'));
 });
 
+app.get('/settings', ensureAuthenticated, (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'views', 'settings.html'));
+});
+
+app.get('/details', ensureAuthenticated, (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'views', 'details.html'));
+});
+
 
 app.use('/register', require('./routes/api/RegisterController'));
 app.use('/login', require('./routes/api/LoginController'));
