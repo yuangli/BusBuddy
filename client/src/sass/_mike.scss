@@ -8,19 +8,19 @@
 }
 
 .a-moveToQuarter{
-	animation: moveToQuarter .5s ease-in fill;
+	animation: moveToQuarter .5s ease-in forwards;
 }
 
 .a-moveToFifty{
-	animation: moveToFifty .5s ease-in fill;
+	animation: moveToFifty .5s ease-in forwards;
 }
 
 .a-moveToHundred{
-	animation: moveToHundred .5s ease-in fill;
+	animation: moveToHundred .5s ease-in forwards;
 }
 
 .a-moveToZero{
-	animation: moveToZero .5s ease-in fill;
+	animation: moveToZero .5s ease-in forwards;
 }
 
 @keyframes moveToZero{
