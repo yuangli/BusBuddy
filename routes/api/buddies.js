@@ -21,10 +21,6 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
 	
 	var studentID = req.body.student_id;
-	res.json({
-		"text": "this is from the server",
-		"messenger": studentID
-	});
 	
 	Student.find( { studentrfid: studentID } )
 	.then(students => {
@@ -39,6 +35,14 @@ router.post('/', (req, res) => {
 
 		//Send to execute function if not empty and valid
 		(Object.keys(data).length !== 0 && data.constructor === Object) ? execute(data) : console.log(`We couldn't find that BuddyID`); 
+	})
+	.catch(err => {
+		if (err){
+			console.log(err);
+			res.json({
+		  		"error" : "Message failed to send"
+		  	});
+		}
 	});
 	
 	//What to do if buddy is scanned and RFID exists in our DB
@@ -57,7 +61,20 @@ router.post('/', (req, res) => {
 		     from: `+1${config.TWILIO_PHONE}`,
 		     to: `+1${parentPhone}`
 		   })
-		  .then(message => console.log(message.sid))
+		  .then(message => {
+			  	res.json({
+			  	"message": message,
+			  	"success": true
+			  	});
+			  	console.log('Success! Message sent: ', message);
+			 }
+		  )
+		  .catch(err => {
+		  	if (err) console.log(err);
+		  	if (err) res.json({
+		  		"error" : "Message failed to send"
+		  	})
+		  })
 		  .done();
 	}
 });
