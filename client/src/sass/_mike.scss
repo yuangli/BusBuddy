@@ -1,0 +1,45 @@
+.child-selected{
+	background-color: #4DAAF7;
+	color: white;
+}
+
+*{
+	font-family: 'Comfortaa', sans-serif;
+}
+
+.a-moveToQuarter{
+	animation: moveToQuarter .5s ease-in fill;
+}
+
+.a-moveToFifty{
+	animation: moveToFifty .5s ease-in fill;
+}
+
+.a-moveToHundred{
+	animation: moveToHundred .5s ease-in fill;
+}
+
+.a-moveToZero{
+	animation: moveToZero .5s ease-in fill;
+}
+
+@keyframes moveToZero{
+	from{width: inherit;}
+	to{width: 0%;}
+}
+
+@keyframes moveToQuarter{
+	from{width: inherit;}
+	to{width: 25%;}
+}
+
+@keyframes moveToFifty{
+	from{width: inherit;}
+	to{width: 50%;}
+}
+
+@keyframes moveToHundred{
+	from{width: inherit;}
+	to{width: 99%;}
+}
+

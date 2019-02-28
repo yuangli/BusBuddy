@@ -4,6 +4,7 @@ const JourneyModel = require('../../models/Journey');
 const SchoolModel = require('../../models/School');
 const DriverCardModel = require('../../models/Drivercard');
 const StudentModel = require('../../models/Student');
+const UserModel = require('../../models/User');
 const config = require('../../config/keys');
 const twilio = require('twilio')(config.TWILIO_SID, config.TWILIO_AUTH);
 
@@ -235,19 +236,46 @@ router.post('/start', (req, res) => {
 						
 						console.log(`Sending notification to ${childName}\'s parent @ ${parentPhone}`);
 						
-						twilio.messages
-						  .create({
-						     body: `Here we come! ${childName}\'s bus is in your area and will be arriving within minutes. \n\nOpen the BusBuddy webapp to see exactly where it is. BusBuddy.com/view`,
-						     from: `+1${config.TWILIO_PHONE}`,
-						     to: `+1${parentPhone}`
-						   })
-						  .then(message => console.log(message.sid))
-						  .done();
+						// twilio.messages
+						//   .create({
+						//      body: `Here we come! ${childName}\'s bus is in your area and will be arriving within minutes. \n\nOpen the BusBuddy webapp to see exactly where it is. BusBuddy.com/view`,
+						//      from: `+1${config.TWILIO_PHONE}`,
+						//      to: `+1${parentPhone}`
+						//    })
+						//   .then(message => console.log(message.sid))
+						//   .done();
 					}
 				}
 			});
 		}
 	}
+
+	(function setStaus(){
+		console.log('Execute');
+		const id = "5c477af0b182610388f25bb3";
+		var update = {$set: {status1: "Bus is on its way"}};
+		
+		UserModel.findByIdAndUpdate(id, update, {new: true, upsert: true}, function(err, data){
+			if (err) return console.log(err);
+			
+			console.log(data);
+		});
+
+
+		// var update = {"children.0.status" : "Bus is on its way"};
+		// var update = {status1: "Steve"};
+		// console.log('cardid HERHERIHN O: ', cardid);
+		// // UserModel.find({'cardid': cardid}).then(data => console.log(data));
+		// var searcher = toString(cardid);
+
+		// UserModel.update({cardid: "123456"}, update, function(err, doc){
+		// 	if (err) console.log(err);
+		// 	console.log(doc);
+		// });
+
+
+		
+	})();
 });
 
 // @route POST api/journies/end

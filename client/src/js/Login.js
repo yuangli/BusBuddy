@@ -54,24 +54,23 @@ class App extends React.Component{
 	render(){
 		return(
 			<div>
-				  <img className="bus_img" style={{padding: "0", paddingLeft: "1em", marginBottom: "-3.2em"}} src="img/bus.svg" alt="School Bus" />
-				  	<div className="sign-in-page">
-				        <header className="l-dashboard-header">
-				                <div className="c-header-text c-header-white">Sign In</div>
-				        </header>
-					    <div className="c-email-input">
-					        <input className="email" type="text" placeholder="Email" name="email" id="email" />
-					    </div>
-					    <div className="c-password-input">
-					            <input className="password" type="password" placeholder="Password" name="password" id="password" />
-					    </div>
-					    <div className="c-spacing__1">
-					        <button className="c-btn-signup">Sign Up</button>
-					    </div>
-					    <div className="c-spacing__2">
-					        <button className="c-btn-login" onClick={this.goDashboard}>Log In</button>
-					    </div>
-					</div>
+				<div class="sign-in-page">
+		            <header class="l-dashboard-header">
+		                    <div class="c-header-text c-header-white"></div>
+		            </header>
+		            <div class="c-email-input">
+		                    <input class="email" type="text" placeholder="Email" name="email" id="email" />
+		            </div>
+		            <div class="c-password-input">
+		                    <input class="password" type="password" placeholder="Password" name="password" id="password" />
+		            </div>
+		            <div class="c-spacing__1">
+		                <button class="c-btn-signup" onclick="alert('Coming soon!')">Sign Up</button>
+		            </div>
+		            <div class="c-spacing__2">
+		                <button class="c-btn-login" onclick={this.goDashboard}>Log In</button>
+		            </div>
+		        </div>
 			</div>
 		)
 	}	

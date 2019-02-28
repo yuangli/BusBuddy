@@ -1,0 +1,54 @@
+@keyframes dash {
+    to {
+        stroke-dashoffset: 0;
+    }
+    }
+
+    .path{
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        animation: dash 5s linear forwards;
+    }
+    
+#mapid {
+
+    margin: 0 auto; 
+    width: 100vw; 
+    height: 90vh;
+    border-radius: 10px;
+    z-index: -99;
+}
+
+.c-eta {
+
+    display: inline-block;
+    z-index: 99;
+    position: absolute;
+    right: .25em; 
+    top: 0.25em;
+    background-color: rgba(255,255,255,0.8);
+    padding: 0.5em 1em;
+    font-family: "Comfortaa";   
+    border-radius: 10px;
+    color: #032A4A;
+}
+
+.c-eta__time {
+
+    font-size: 2.5em;
+    padding-left: -2em;
+    display: inline-block;
+}
+
+.c-eta__meridiem {
+
+
+}
+
+.c-arrow {
+
+    display: inline-block;
+    position: absolute;
+    top: 2em;
+    left: 2em;
+}

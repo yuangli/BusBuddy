@@ -6,11 +6,13 @@ class App extends React.Component{
 	constructor(props) {
 	    super(props);
 	    this.goMap = this.goMap.bind(this);
+	    this.setStatusBar = this.setStatusBar.bind(this);
 
 	    
 	    this.state = {
 			activeChild : 0,
-			data : null
+			data : null,
+			statusBarWidth: 0
 		};
 	}
 
@@ -52,6 +54,47 @@ class App extends React.Component{
 		});
 	}
 
+	componentDidMount(){
+		//Loop through calls to server
+		setInterval(() => {
+			console.log('hit');
+			let reponse;
+			fetch('/api/users', {
+					method: 'POST',
+					credentials: 'include',
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+				.then(response => response.json())
+				.then(res => {
+					//Check if anything changed
+					if (res.children[this.state.activeChild].status == this.state.data.children[this.state.activeChild].status){
+						console.log('no update');
+					} else {
+						console.log('setting data state to ', res);
+						this.setState({ data: res});
+
+						if (res.children[this.state.activeChild].status == 'Not on bus'){
+							this.setStatusBar(0);
+						} else if (res.children[this.state.activeChild].status == 'Bus is on its way'){
+							this.setStatusBar(1);
+						} else if (res.children[this.state.activeChild].status == 'Bus has arrived at school'){
+							this.setStatusBar(2);
+						}
+					}
+					
+					
+				})
+				.catch(err => {
+					console.log('Error: ', err);
+				});
+			
+			
+		}, 1500);
+		
+	}
+
 	setActiveChild(index, num){
 		this.setState({ activeChild: index });
 		
@@ -87,6 +130,33 @@ class App extends React.Component{
 
 	goDetails(){
 		window.location.replace('/details');
+	}
+
+	setStatusBar(code){
+		//0 = not started
+		//1 = bus driver started
+		//2 = child scanned on
+		//3 = bus driver ended
+
+		//When bus driver starts, set width to 20%, set color
+		//When child scans on, turn circle green around kid, advance with to 50%
+		//When driver ends, set width to 90%. If child was on, turn it all green. Else, turn it red
+		var theBar = document.getElementById("statusBar");
+
+		if (code == 0){
+			theBar.className = '';
+			theBar.classList.add('a-moveToZero');
+		} else if (code == 1) {
+			theBar.className = '';
+			theBar.classList.add('a-moveToQuarter');
+		} else if (code == 2) {
+			theBar.className = '';
+			theBar.classList.add('a-moveToFifty');
+		} else if (code == 3) {
+			theBar.className = '';
+			theBar.classList.add('a-moveToHundred');
+		}
+
 	}
 
 	render(){
@@ -141,7 +211,7 @@ class App extends React.Component{
 				    <div className="c-status-box c-status-box__neutral">{status}</div>
 				    <div className="arrow-down"></div>
 				    <div className="c-timeline a-timeline">
-				        <span style={{width: "60%"}}></span>
+				        <span id="statusBar" style={{width: this.state.statusBarWidth + '%'}}></span>
 				        <div className="c-timeline__item c-timeline__home animation">
 				            <img className="c-timeline__image" src="img/school_bus.svg" alt="School Bus" />
 				        </div>

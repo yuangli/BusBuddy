@@ -8,12 +8,132 @@
     <link href="https://fonts.googleapis.com/css?family=Assistant|Comfortaa" rel="stylesheet">
     <link rel="stylesheet" href="css/screen.css">
     <!-- <link rel="stylesheet" href="style.css"> -->
-    <title>BusBuddy | Login</title>
+    <title>Login | BusBuddy</title>
+    <style>.cls-1{fill:#3271ca;}.cls-2{fill:none;stroke:#fff;stroke-linecap:round;stroke-miterlimit:10;}</style>
 
 </head>
-<div id="root"></div>
 <body>
 
-<script type="text/javascript" src="js/login-bundle.js"></script>
+<header class="l-dashboard-header">
+        <div class="c-header-splash">Bus<br /> Buddy</div>
+    </header>
+    <div class='roadcontainer'>
+        <div class="road">
+            <img class="bus_img" src="img/bus.svg" alt="school bus" />
+            <img class="bus_stop" src="img/busstop.png" alt="bus stop" />
+            <div class="road-top-half"></div>
+            <div class="road-bottom-half"></div>
+        </div>
+    </div>
+    <div class="p2" id="p2" ontouchstart="p2touchStart(event)" ontouchmove="p2touchMove(event)"
+        ontouchend="p2touchEnd(event)">
+        <div class="header1">
+            <div class="c-sign-in-btn">
+                <a href="javascript: ">Sign In</a>
+                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 63"><defs><style>.cls-1{fill:#3271ca;}.cls-2{fill:none;stroke:#fff;stroke-linecap:round;stroke-miterlimit:10;}</style></defs><path class="cls-1" d="M428,9H247.25V7.58A7.58,7.58,0,0,0,239.67,0H200.32a7.57,7.57,0,0,0-7.57,7.57V9H12.05A12,12,0,0,0,0,21.05v40.8A1.16,1.16,0,0,0,1.15,63h437.7A1.16,1.16,0,0,0,440,61.85V21.05A12.06,12.06,0,0,0,428,9Z"/><line class="cls-2" x1="203.25" y1="15" x2="219.75" y2="6"/><line class="cls-2" x1="236.75" y1="15" x2="220.25" y2="6"/>
+                </svg>
+            </div>
+        </div>
+        <div class="sign-in-page">
+            <header class="l-dashboard-header">
+                    <div class="c-header-text c-header-white"></div>
+            </header>
+            <div class="c-email-input">
+                    <input class="email" type="text" placeholder="Email" name="email" id="email" />
+            </div>
+            <div class="c-password-input">
+                    <input class="password" type="password" placeholder="Password" name="password" id="password" />
+            </div>
+            <div class="c-spacing__1">
+                <button class="c-btn-signup">Sign Up</button>
+            </div>
+            <div class="c-spacing__2">
+                <button class="c-btn-login" onclick="goDash()">Log In</button>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        var startingY;
+        var p2 = document.getElementById('p2');
+
+        function p2touchStart(evt) {
+            startingY = evt.touches[0].clientY;
+        };
+
+        function p2touchMove(evt) {
+            var touch = evt.touches[0];
+            var change = touch.clientY - startingY;
+            console.log(change);
+            if (change < 0) {
+                return;
+            }
+            // p1.style.bottom = (change - screen.height) + 'px';
+            //p2.style.top = change + 150 + 'px';
+            p2.style.height = "300px";
+            evt.preventDefault();
+        };
+
+        function p2touchEnd(evt) {
+            var change = evt.changedTouches[0].clientY - startingY;
+            var half = 50;
+            change = Math.abs(change);
+            console.log(change);
+
+            //var half = screen.height / 4;
+            if (change < half) {
+                p2.style.bottom = '0vh';
+                 p2.style.height = "80px";
+                 console.log('closed');
+                 $('body').removeClass('open');
+            } else {
+                p2.style.bottom = '80px';
+                 p2.style.height = "300px";
+                p2.style.display = 'block';
+                console.log('open');
+                $('body').addClass('open');
+                // p2.style.display = 'none';
+            }
+        };
+    </script>
+
+    <script>
+		function goDash(){
+		
+			const email = document.getElementById('email').value;
+			const password = document.getElementById('password').value;
+			//Send to message handler on the backend
+			//mfcbone@gmail.com
+			//blabla1
+			var details = {
+				"email": email,
+				"password": password
+			}
+
+			var formBody = [];
+			for (var property in details) {
+			  var encodedKey = encodeURIComponent(property);
+			  var encodedValue = encodeURIComponent(details[property]);
+			  formBody.push(encodedKey + "=" + encodedValue);
+			}
+			formBody = formBody.join("&");
+
+			details = JSON.stringify(details);
+
+			fetch('/login', {
+				method: 'POST',
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: details
+			})
+			.then(data => {
+				console.log('Success.', data);
+				window.location.replace('/dashboard')
+			})
+			.catch(err => {
+				console.log('Error: ', err);
+			});
+		}
+   </script>
 </body>
 </html>
