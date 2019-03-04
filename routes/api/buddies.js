@@ -4,6 +4,8 @@ const config = require('../../config/keys');
 const twilio = require('twilio')(config.TWILIO_SID, config.TWILIO_AUTH);
 const Student = require('../../models/Student');
 const Location = require('../../models/Location');
+const UserModel = require('../../models/User');
+
 
 // @route GET api/schools
 // @desc Get all schools
@@ -77,6 +79,14 @@ router.post('/', (req, res) => {
 		  })
 		  .done();
 	}
+
+	const id = "5c477af0b182610388f25bb3";
+			
+	UserModel.findByIdAndUpdate(id, {$set: {'children.0.status': "Bus arrived, child scanned on!", 'children.0.didScan': true }}, {upsert: true, new: true}, function(err, data){
+		if (err) return console.log(err);
+
+		console.log("data: ", data);
+	});
 });
 
 //https://serene-oasis-62993.herokuapp.com/api/buddies/data

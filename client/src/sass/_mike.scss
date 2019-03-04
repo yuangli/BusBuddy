@@ -24,22 +24,31 @@
 }
 
 @keyframes moveToZero{
-	from{width: inherit;}
+	from{width: initial;}
 	to{width: 0%;}
 }
 
 @keyframes moveToQuarter{
-	from{width: inherit;}
+	from{width: 0%;}
 	to{width: 25%;}
 }
 
 @keyframes moveToFifty{
-	from{width: inherit;}
+	from{width: 25%;}
 	to{width: 50%;}
 }
 
 @keyframes moveToHundred{
-	from{width: inherit;}
+	from{width: 50%;}
 	to{width: 99%;}
+}
+
+.kidsss{
+	transition: .2s all ease-in;
+}
+
+#status-icon1, #status-icon2, #status-icon3{
+	transition: .2s all ease-in;
+	border: 4px solid #bbb;
 }
 

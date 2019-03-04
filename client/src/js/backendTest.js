@@ -56,6 +56,14 @@ class App extends React.Component{
 		});
 	}
 
+	refreshChild(){
+		console.log('refreshChild called');
+		axios({
+			method: 'post',
+			url: '/api/journies/reset'
+		});
+	}
+
 	render(){
 		return(
 			<div>
@@ -108,6 +116,20 @@ class App extends React.Component{
 						<div className="c-prototype__buttons">
 							<button onClick={() => {this.endJourney(1)}} className="c-button c-prototype__button">End Journey 1</button>
 							<button onClick={() => {this.endJourney(2)}} className="c-button c-prototype__button">End Journey 2</button>
+						</div>
+					</div>
+					<div className="c-prototype">
+						<div className="c-prototype__content">
+							<h2 className="c-prototype__title">Reset Child</h2>
+							<h3 className="c-prototype__list-title">What's happening:</h3>
+							<ul>
+								<li className="c-prototype__list-item">Each night, the system will reset the child's status to inactive</li>
+								<li className="c-prototype__list-item">This way each morning, the interface should be fresh</li>
+								<li className="c-prototype__list-item">The backend will reset each child to the default status</li>
+							</ul> 
+						</div>
+						<div className="c-prototype__buttons">
+							<button onClick={this.refreshChild} className="c-button c-prototype__button">Reset Child</button>
 						</div>
 					</div>
 				</div>

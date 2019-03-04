@@ -235,47 +235,30 @@ router.post('/start', (req, res) => {
 						let childName = value.students[i].studentDetails[0].firstName;
 						
 						console.log(`Sending notification to ${childName}\'s parent @ ${parentPhone}`);
-						
-						// twilio.messages
-						//   .create({
-						//      body: `Here we come! ${childName}\'s bus is in your area and will be arriving within minutes. \n\nOpen the BusBuddy webapp to see exactly where it is. BusBuddy.com/view`,
-						//      from: `+1${config.TWILIO_PHONE}`,
-						//      to: `+1${parentPhone}`
-						//    })
-						//   .then(message => console.log(message.sid))
-						//   .done();
+						setStatus();
+						twilio.messages
+						  .create({
+						     body: `Here we come! ${childName}\'s bus is in your area and will be arriving within minutes. \n\nOpen the BusBuddy webapp to see exactly where it is. BusBuddy.com/view`,
+						     from: `+1${config.TWILIO_PHONE}`,
+						     to: `+1${parentPhone}`
+						   })
+						  .then(message => console.log(message.sid))
+						  .done();
 					}
 				}
 			});
 		}
-	}
-
-	(function setStaus(){
-		console.log('Execute');
-		const id = "5c477af0b182610388f25bb3";
-		var update = {$set: {status1: "Bus is on its way"}};
-		
-		UserModel.findByIdAndUpdate(id, update, {new: true, upsert: true}, function(err, data){
-			if (err) return console.log(err);
+		function setStatus(){
+			const id = "5c477af0b182610388f25bb3";
 			
-			console.log(data);
-		});
+			UserModel.findByIdAndUpdate(id, {$set: {'children.0.status': "Bus is on its way" }}, {upsert: true, new: true}, function(err, data){
+				if (err) return console.log(err);
 
-
-		// var update = {"children.0.status" : "Bus is on its way"};
-		// var update = {status1: "Steve"};
-		// console.log('cardid HERHERIHN O: ', cardid);
-		// // UserModel.find({'cardid': cardid}).then(data => console.log(data));
-		// var searcher = toString(cardid);
-
-		// UserModel.update({cardid: "123456"}, update, function(err, doc){
-		// 	if (err) console.log(err);
-		// 	console.log(doc);
-		// });
-
-
+				console.log("data: ", data);
+			});
+		}
 		
-	})();
+	}
 });
 
 // @route POST api/journies/end
@@ -310,7 +293,28 @@ router.post('/end', (req, res) => {
 		
 		res.send(message);
 	});
+
+	const id = "5c477af0b182610388f25bb3";
+			
+	UserModel.findByIdAndUpdate(id, {$set: {'children.0.status': "Bus has arrived at school" }}, {upsert: true, new: true}, function(err, data){
+		if (err) return console.log(err);
+
+		console.log("data: ", data);
+	});
 });
+
+router.post('/reset', (req, res) => {
+	console.log('Resetting child...');
+	
+	const id = "5c477af0b182610388f25bb3";		
+	UserModel.findByIdAndUpdate(id, {$set: {'children.0.status': "Not on bus", 'children.0.didScan': false }}, {upsert: true, new: true}, function(err, data){
+		if (err) return console.log(err);
+		
+		res.send('Success.');
+	});
+});
+
+
 
 
 module.exports = router;

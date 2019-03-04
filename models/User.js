@@ -37,7 +37,11 @@ const UserSchema = new Schema({
     	required: true,
     	default: Date.now,
     	type: Date
-    }
+    },
+    status1: {
+        type: String
+    },
+    children: [Object]
 });
 
 module.exports = User = mongoose.model('user', UserSchema);
