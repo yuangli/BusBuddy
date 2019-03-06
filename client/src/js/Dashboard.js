@@ -110,11 +110,11 @@ class App extends React.Component{
 		kidsArr[index].classList.add("child-selected")
 
 		if (index === 0){
-			kidsArr[index].style.borderRadius = "10px 0px 0px 10px";
+			kidsArr[index].style.borderRadius = "11px 0px 0px 11px";
 			kidsArr[index].style.marginLeft = "-8px";
 			kidsArr[2].style.marginRight = "0px";
 		} else if (index === 2){
-			kidsArr[index].style.borderRadius = "0px 10px 10px 0px";
+			kidsArr[index].style.borderRadius = "0px 11px 11px 0px";
 			kidsArr[index].style.marginRight = "-8px";
 			kidsArr[0].style.marginLeft = "0px";
 		}
