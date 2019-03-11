@@ -52,3 +52,25 @@
 	border: 4px solid #bbb;
 }
 
+.c-student-info__pickup, .c-student-info__location{
+	color: #032A4A;
+	font-size: .9rem;
+}
+
+.c-driver-info__label, .c-driver-info__text{
+	color: #032A4A;
+	font-size: .95rem;
+}
+
+.c-header-text, .c-eta-text__text, .c-eta-text__timer, .c-eta-text__meridiem, .c-btn-map-view{
+	color: #032A4A;
+}
+
+.dot{
+	margin: 0 5px 0 -5px;
+}
+
+.c-timeline__item{
+	margin-right: 1.3em;
+}
+
