@@ -3,9 +3,9 @@
 	color: white;
 }
 
-*{
-	font-family: 'Comfortaa', sans-serif;
-}
+// *{
+// 	font-family: 'Comfortaa', sans-serif;
+// }
 
 .a-moveToQuarter{
 	animation: moveToQuarter .5s ease-in forwards;
@@ -55,11 +55,13 @@
 .c-student-info__pickup, .c-student-info__location{
 	color: #032A4A;
 	font-size: .9rem;
+	font-family: 'Assistant', sans-serif !important;
 }
 
 .c-driver-info__label, .c-driver-info__text{
 	color: #032A4A;
-	font-size: .95rem;
+	font-size: 1.1rem;
+	font-family: 'Comfortaa', sans-serif !important;
 }
 
 .c-header-text, .c-eta-text__text, .c-eta-text__timer, .c-eta-text__meridiem, .c-btn-map-view{
