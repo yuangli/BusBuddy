@@ -46,13 +46,13 @@ class App extends React.Component{
 		});
 	}
 
-	scanKid(){
+	scanKid(numba){
 		console.log("hello");
 		axios({
 			method: 'post',
 			url: '/api/buddies/',
 			data: {
-				"student_id" : "123"
+				"student_id" : numba
 			}
 		});
 	}
@@ -119,7 +119,8 @@ class App extends React.Component{
 							</ul> 
 						</div>
 						<div className="c-prototype__buttons">
-							<button onClick={this.scanKid}  className="c-button c-prototype__button">Activate</button>
+							<button onClick={() => {this.scanKid("123")}}  className="c-button c-prototype__button">Activate</button>
+							<button onClick={() => {this.scanKid("0000")}}  className="c-button c-prototype__button">Activate</button>
 						</div>
 					</div>
 					<div className="c-prototype">
