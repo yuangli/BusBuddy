@@ -153,7 +153,7 @@ class App extends React.Component{
 	}
 
 	goDetails(){
-		window.location.replace('/details');
+		window.location.replace('http://www.sabraydesign.com/busbuddy/settings.html');
 	}
 
 	setStatusBar(code){

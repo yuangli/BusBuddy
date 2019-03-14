@@ -48,18 +48,7 @@ class App extends React.Component{
 			
 		return(
 			<div>
-				   <a onClick={this.goDashboard}><img className="c-arrow" src="img/arrow.svg" alt="gear" /></a>
-				        <header className="l-dashboard-header">
-				                <div className="c-header-text c-header-subtext">More Details</div>
-				        </header>
-
-				        <div className="c-subheader">Michael Carbonara</div>
-
-				        <div className="c-subtext">Southeast Elementary School <br />
-				        Salt Lake City School District</div>
-				        <div className="c-subtext"><strong>Pick-up Location:</strong><br />Jackson & Fillmore Street</div>
-				        <div className="c-subtext"><strong>Pick-up Time: </strong>7:20am<br /><strong>Bus Number: </strong>345</div>
-				        <div className="c-subheader">Scan History</div>
+				   
 			</div>
 		)
 	}	
