@@ -149,11 +149,11 @@ class App extends React.Component{
 	}
 
 	goSettings(){
-		window.location.replace('/settings');
+		window.location.replace('http://www.sabraydesign.com/busbuddy/settings.html');
 	}
 
 	goDetails(){
-		window.location.replace('http://www.sabraydesign.com/busbuddy/settings.html');
+		window.location.replace('http://www.sabraydesign.com/busbuddy/details.html');
 	}
 
 	setStatusBar(code){
