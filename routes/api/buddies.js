@@ -59,7 +59,7 @@ router.post('/', (req, res) => {
 		console.log(`Sending message to ${childFirst}'s parent...`);
 		twilio.messages
 		  .create({
-		     body: `Off to school! ${childFirst} has boarded their bus! \n\nOpen the BusBuddy webapp to see exactly where it is. BusBuddy.com/view`,
+		     body: `Off to school! ${childFirst} has boarded their bus! \n\nOpen the BusBuddy webapp to see exactly where it is. tiny.cc/BusBuddyDashboard`,
 		     from: `+1${config.TWILIO_PHONE}`,
 		     to: `+1${parentPhone}`
 		   })
