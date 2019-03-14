@@ -238,7 +238,7 @@ router.post('/start', (req, res) => {
 						setStatus();
 						twilio.messages
 						  .create({
-						     body: `Here we come! ${childName}\'s bus is in your area and will be arriving within minutes. \n\nOpen the BusBuddy webapp to see exactly where it is. tiny.cc/BusBuddyDashboard`,
+						     body: `Here we come! ${childName}\'s bus is in your area and will be arriving within minutes. \n\nOpen the BusBuddy webapp to see exactly where it is. \n\ntiny.cc/BusBuddyDashboard`,
 						     from: `+1${config.TWILIO_PHONE}`,
 						     to: `+1${parentPhone}`
 						   })
