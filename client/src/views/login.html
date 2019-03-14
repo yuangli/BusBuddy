@@ -31,7 +31,7 @@
         background: linear-gradient(rgba(0,179,231,1) 0%, rgba(216,238,99,1) 100%);
         }
 
-        #splashImg{
+        #splash{
             display: block;
             max-width: 600px;
             margin: 0 auto;
@@ -58,10 +58,10 @@
             <div class="road-bottom-half"></div>
         </div>
     </div> -->
-    <!-- <video id="splash" loop preload="auto" playsinline class="roadcontainer">
-            <source src="img/splash.webm" type="video/webm">
-        </video> -->
-    <img id="splashImg" src="img/splash.gif" alt="">
+    <video id="splash" loop preload="auto" playsinline autoplay="true" muted="muted" class="roadcontainer">
+            <source src="img/splash.mp4" type="video/mp4">
+        </video>
+    <!-- <img id="splash" src="img/splash.mp4" alt=""> -->
     <div class="p2" id="p2" ontouchstart="p2touchStart(event)" ontouchmove="p2touchMove(event)"
         ontouchend="p2touchEnd(event)">
         <div class="header1">
@@ -94,23 +94,25 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script type="text/javascript">
-        // window.addEventListener("load", function(){
-            
-        // });
+        window.addEventListener("DOMContentLoaded", function(){
+            var playPromise = document.getElementById("splash").play();
+        if (playPromise !== undefined) {
+            playPromise.then(_ => {
+              // Automatic playback started!
+              // Show playing UI.
+                console.log("playing");
+            })
+            .catch(error => {
+                console.log(error);
+                console.log('nah');
+              // Auto-play was prevented
+              // Show paused UI.
+            });
+          }
+           
+        });
 
-        // var playPromise = document.getElementById("splash").play();
-        // if (playPromise !== undefined) {
-        //     playPromise.then(_ => {
-        //       // Automatic playback started!
-        //       // Show playing UI.
 
-        //     })
-        //     .catch(error => {
-        //         console.log(error);
-        //       // Auto-play was prevented
-        //       // Show paused UI.
-        //     });
-        //   }
 
     </script>
     <script>
