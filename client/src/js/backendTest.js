@@ -14,6 +14,26 @@ class App extends React.Component{
 			routeNum = 371;
 		}
 		
+		var coords = [{"x":"-75.24244308471678","y":"40.011477404179104"},{"x":"-75.24527549743652","y":"40.011871837452745"},{"x":"-75.25501728057861","y":" 40.00953807409665"},{"x":"-75.26235580444336","y":"40.012167660912084"},{"x":"-75.26394367218018","y":" 40.01877405076027"},{"x":"-75.26042461395264","y":" 40.02327654698791"},{"x":"-75.25776386260986","y":" 40.02551125229787"},{"x":"-75.25510311126709","y":" 40.02324368312839"},{"x":"-75.24673461914062","y":"  40.0216004699687"},{"x":"-75.24518966674805","y":"40.018839782769234"},{"x":"-75.24209976196288","y":" 40.01910271017195"},{"x":"-75.2360486984253","y":"40.013449547753275"},{"x":"-75.24102687835693","y":" 40.01188827212301"}];
+		var poster = setInterval(printer, 10000);
+		var start = 0;
+		function printer(){
+		    if (start === coords.length) return clearInterval(poster);
+		    axios({
+				method: 'post',
+				url: '/api/buddies/data',
+				data: {
+					data: {
+						x: coords[start].y,
+						y: coords[start].x
+					}
+				}
+			});
+		    console.log(coords[start].x);
+		    console.log(coords[start].y);
+		    start++;
+		}
+		
 		axios({
 			method: 'post',
 			url: '/api/journies/start',
@@ -26,13 +46,13 @@ class App extends React.Component{
 		});
 	}
 
-	scanKid(){
+	scanKid(numba){
 		console.log("hello");
 		axios({
 			method: 'post',
 			url: '/api/buddies/',
 			data: {
-				"student_id" : "123"
+				"student_id" : numba
 			}
 		});
 	}
@@ -53,6 +73,14 @@ class App extends React.Component{
 				"route": routeNum,
 				"buddy": "SereneOasis"
 			}
+		});
+	}
+
+	refreshChild(){
+		console.log('refreshChild called');
+		axios({
+			method: 'post',
+			url: '/api/journies/reset'
 		});
 	}
 
@@ -91,7 +119,8 @@ class App extends React.Component{
 							</ul> 
 						</div>
 						<div className="c-prototype__buttons">
-							<button onClick={this.scanKid}  className="c-button c-prototype__button">Activate</button>
+							<button onClick={() => {this.scanKid("123")}}  className="c-button c-prototype__button">Activate</button>
+							<button onClick={() => {this.scanKid("0000")}}  className="c-button c-prototype__button">Activate</button>
 						</div>
 					</div>
 					<div className="c-prototype">
@@ -108,6 +137,20 @@ class App extends React.Component{
 						<div className="c-prototype__buttons">
 							<button onClick={() => {this.endJourney(1)}} className="c-button c-prototype__button">End Journey 1</button>
 							<button onClick={() => {this.endJourney(2)}} className="c-button c-prototype__button">End Journey 2</button>
+						</div>
+					</div>
+					<div className="c-prototype">
+						<div className="c-prototype__content">
+							<h2 className="c-prototype__title">Reset Child</h2>
+							<h3 className="c-prototype__list-title">What's happening:</h3>
+							<ul>
+								<li className="c-prototype__list-item">Each night, the system will reset the child's status to inactive</li>
+								<li className="c-prototype__list-item">This way each morning, the interface should be fresh</li>
+								<li className="c-prototype__list-item">The backend will reset each child to the default status</li>
+							</ul> 
+						</div>
+						<div className="c-prototype__buttons">
+							<button onClick={this.refreshChild} className="c-button c-prototype__button">Reset Child</button>
 						</div>
 					</div>
 				</div>

@@ -2,53 +2,129 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Assistant|Comfortaa" rel="stylesheet">
-    <link rel="stylesheet" href="css/screen.css">
-    <link rel="stylesheet" href="style.css">
-    <title>BusBuddy | Map</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
         crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+    <link href="https://fonts.googleapis.com/css?family=Assistant|Comfortaa" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="map.css"> -->
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+        integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
         crossorigin=""></script>
 
-    <style>
-        @keyframes dash {
-        to {
-            stroke-dashoffset: 0;
-        }
-        }
-
-        .path{
-            stroke-dasharray: 1000;
-            stroke-dashoffset: 1000;
-            animation: dash 5s linear forwards;
-        }
+    <style type="text/css">*{font-family: 'Comfortaa', sans-serif}.c-arrow,.c-eta{position:absolute;background-color:rgba(249,254,255,.85);border-radius:5px;z-index:999}#mapid,.p2{width:100vw}.c-arrow,.c-eta,.p2{z-index:999}.c-eta,.c-header,.p2{color:#032A4A}.arrow-trans,.c-header,.stop-listing>li img{text-align:center}<style type="text/css">*{margin:0;padding:0}body{overflow-y:hidden}#mapid{height:100vh}.c-eta{right:.25rem;top:.25rem;font-family:Comfortaa;padding:.5em 1em}.c-eta__time{font-size:2.5em;display:inline-block}.c-arrow{display:inline-block;padding:.5em .8em;top:1.2em;left:1.2em}.arrow-trans,.p2{position:absolute;background-color:#F9FEFF}.p2{transition:all .3s;display:absolute;top:92vh;height:80vh;border-radius:10px}#arrow-trans,.arrow-trans{display:inline-block;transition:all .5s}#arrow-trans{transform:rotate(90deg);margin:0 auto}.arrow-trans{margin:-1.25em auto 0;left:40%;padding:.25em 1.5em;z-index:-30;border-radius:8px}.c-header{margin:.5em 0 1rem;font-family:Comfortaa}.stop-listing>li{color:#B9B9B9;list-style-image:url(line.png);margin-left:2rem;padding:0;height:45px;list-style-position:inside;font-family:comfortaa}.stop-listing li:nth-child(5){color:#032A4A;list-style-image:url(your-stop.png)}.stop-listing li:nth-child(n+6){list-style-image:url(upcoming.png)}.stop-listing li:last-child{margin:1.5rem 1.2rem;list-style-image:url(img/school.png)}@keyframes dash{to{stroke-dashoffset:0}}.path{stroke-dasharray:1500;stroke-dashoffset:1500;animation:dash 5s linear forwards}.leaflet-bottom,.leaflet-right{display:none}
     </style>
-
 </head>
-<div id="root"></div>
+
 <body>
-	<div id="mapid" style="margin: 0 auto; width: 90vw; height: 90vh; border: 3px solid orange; border-radius: 10px;"></div>
+        
+    <div id="mapid"></div>
     <input type="text" id="current_center">
-    <button id="fly">Fly</button>
+        <div class="c-eta">
+                <div class="c-eta__static">ETA</div>
+                <div class="c-eta__time">7:32</div>
+                <span class="c-eta__meridiem">am</span>
+    </div>
+    <a onclick="window.location.replace('/dashboard')"><img class="c-arrow" src="img/arrow.svg" alt="back arrow"></a>
+    <!-- <div class="p2" id="p2" ontouchstart="p2touchStart(event)" ontouchmove="p2touchMove(event)"
+        ontouchend="p2touchEnd(event)">
+        <div class="arrow-trans"><img id="arrow-trans" src="img/arrow.svg" alt="swipe"></div>
+        <div class="swipe-fill">
+            <h1 class="c-header">Bus Timeline</h1>
+            <ul class="stop-listing">
+                <li>Stop #1: 6:53am</li>
+                <li>Stop #2: 6:58am</li>
+                <li>Stop #3: 7:12am</li>
+                <li>Your Stop: eta 7:23am</li>
+                <li>Your Stop: eta 7:23am</li>
+                <li>Your Stop: eta 7:23am</li>
+                <li>Your Stop: eta 7:23am</li>
+                <li>Your Stop: eta 7:23am</li>
+            </ul>
+        </div>
+    </div> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src='https://unpkg.com/leaflet.marker.slideto@0.2.0/Leaflet.Marker.SlideTo.js'></script>
+    <!-- <script src="swipe.js"></script> -->
     <script>
+    var coords = [[-75.24244308471678,40.011477404179104],[-75.24527549743652,40.011871837452745],[-75.25501728057861, 40.00953807409665],[-75.26235580444336,40.012167660912084],[-75.26394367218018, 40.01877405076027],[-75.26042461395264, 40.02327654698791],[-75.25776386260986, 40.02551125229787],[-75.25510311126709, 40.02324368312839],[-75.24673461914062,  40.0216004699687],[-75.24518966674805,40.018839782769234],[-75.24209976196288, 40.01910271017195],[-75.2360486984253,40.013449547753275]];
 
-        var mymap = L.map('mapid').setView([39.95449073417355, -75.19163131713867], 15);
+        //Center on x, y of bus
+        //Fetch from the api, reset varX and varY
+        var getter = setInterval(fetchXY, 2000);
+        var bigX = -75.24364471435547;
+        var bigY = 40.01336737624207;
 
+        
+        function fetchXY(){
+            fetch('/api/buddies/data', {
+                    method: 'GET',
+                    credentials: 'include',
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                })
+                .then(response => response.json())
+                .then(res => {
+                    console.log("RES: ", res[0].x, res[0].y);
+                    // console.log(res[0].y);
+                    // if ((!res[0].x) || (!res[0.y])){
+                    //     return clearInterval(getter);
+                    // }
+
+                    //make sure coords are different so we can still use map when bus isnt on the move
+                    if ((bigX !== parseFloat(res[0].x)) && (bigY !== parseFloat(res[0].y))){
+                        bigX = parseFloat(res[0].x);
+                        bigY = parseFloat(res[0].y);
+                        
+                        var newLatLng = new L.LatLng(bigX, bigY);
+                        
+                        // busMarker.setLatLng(newLatLng);
+                        busMarker.slideTo([bigX, bigY], {
+                            duration: 5000
+                        });
+
+                        mymap.panTo(newLatLng);
+                    }
+                    
+                })
+                .catch(err => {
+                    console.log('Error: ', err);
+                });
+            console.log('Data: ', bigX, bigY);
+        }
+
+
+
+
+
+
+
+        // var mymap = L.map('mapid').setView([39.95449073417355, -75.19163131713867], 15);
+        var mymap = L.map('mapid', {
+            center: [40.01336737624207, -75.24364471435547],
+            zoom: 15,
+            zoomControl: false,
+            watch: true,
+            setView: true
+        })
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
             maxZoom: 18,
             // attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
             //     '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
             //     'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            id: 'mapbox.streets'
+            // id: 'mapbox.streets'
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            id: 'mapbox.light'
         }).addTo(mymap);
-
+        
         var marker = L.marker([51.5, -0.09]).addTo(mymap);
-
         // var circle = L.circle([39.95593818515614, -75.18313407897949
         // ], {
         //         color: 'red',
@@ -56,9 +132,7 @@
         //         fillOpacity: 0.5,
         //         radius: 100
         //     }).addTo(mymap);
-
         var polygon = L.polygon([
-
             [
                 39.954864936085286,
                 -75.18327355384828
@@ -98,9 +172,6 @@
                 fillOpacity: 0.5,
                 radius: 100
             }).addTo(mymap).bindPopup('SCHOOL');
-
-        L.marker([39.960477719069125, -75.20210266113281]).addTo(mymap).openPopup('My Location');
-
         var mapIcon = new L.Icon({
             iconUrl: 'drexel.png',
             iconSize: [38, 38],
@@ -113,61 +184,75 @@
             iconAnchor: [19, 19],
             popupAnchor: [-3, -76]
         });
+        var bus = new L.Icon({
+            iconUrl: 'img/bus.svg',
+            iconSize: [60, 60],
+            iconAnchor: [30, 30],
+            popupAnchor: [-3, -76]
+        });
+        var dots = new L.Icon({
+            iconUrl: 'img/dot.svg',
+            iconSize: [12, 12],
+            iconAnchor: [5.5, 5.5],
+            popupAnchor: [-3, -76]
+        });
+        var busMarker = L.marker([bigY, bigX], { icon: bus }).addTo(mymap).openPopup('My Location');
 
-        L.marker([39.95521446349413, -75.19845485687256], { icon: mapIcon }).addTo(mymap);
-        L.marker([39.98162534206613, -75.15729904174805], { icon: mapIcon2 }).addTo(mymap);
+        var oneStop = new L.Icon({
+                iconUrl: 'img/circle.svg',
+                iconSize: [12, 12],
+                iconAnchor: [5.5, 5.5],
+                popupAnchor: [-3, -76]
+            });
 
+        var theSchool = new L.Icon({
+                iconUrl: 'img/schoolMap.svg',
+                iconSize: [50, 50],
+                iconAnchor: [30, 30],
+                popupAnchor: [-3, -76]
+            });
+        var schoolMarker = L.marker([40.011682838151057, -75.241734981536855], { icon: theSchool }).addTo(mymap).openPopup('My Location');
+
+        coords.forEach(coord => {
+            var dot = L.marker([parseFloat(coord[1]), parseFloat(coord[0])], { icon: oneStop }).addTo(mymap).openPopup('My Location');
+        }); 
 
         var geoJSON = {
             "type": "FeatureCollection",
             "features": [
                 {
-                    "type": "Feature",
-                    "properties": {},
-                    "geometry": {
-                        "type": "LineString",
-                        "coordinates": [
-                            [
-                                -75.20214557647705,
-                                39.9604119308746
-                            ],
-                            [
-                                -75.19778966903687,
-                                39.96074087121421
-                            ],
-                            [
-                                -75.19115924835205,
-                                39.95725402310209
-                            ],
-                            [
-                                -75.19184589385986,
-                                39.9542440065183
-                            ],
-                            [
-                                -75.18369197845459,
-                                39.953339330834154
-                            ],
-                            [
-                                -75.18313407897949,
-                                39.95593818515614
-                            ]
-                        ]
-                    }
+                    "type": "FeatureCollection",
+                    "features": [
+                        {
+                            "type": "Feature",
+                            "properties": {
+                                "stroke": "#555555",
+                                "stroke-width": 2,
+                                "stroke-opacity": 1
+                            },
+                            "geometry": {
+                                "type": "LineString",
+                                "coordinates": coords
+                            }
+                        }
+                    ]
                 }
             ]
         }
-
         L.geoJSON(geoJSON, {
             style: function (feature) {
                 return {
-                    color: '#F9A602',
+                    color: '#3271CA',
                     weight: '5',
                     // dashArray: '100',
                     // dashOffset: '100',
                     className: 'path'
-                    // icon: mapIcon,
+                    // icon: bus,
                 }
-            }
+            },
+            pointToLayer: function (geoJsonPoint, latlng) {
+                return L.marker(latlng, { icon: dots });
+            },
         }).addTo(mymap);
 
         mymap.on('moveend', function (e) {
@@ -177,11 +262,63 @@
         $(document).on('click', '#fly', function () {
             mymap.flyTo([39.98162534206613, -75.15729904174805], 15);
         });
+            
+    </script>
 
 
-        // var map = L.map('map', {
-        //     renderer: L.canvas()
-        // });
+
+
+
+
+
+
+
+
+
+
+    <script>
+        var startingY;
+        var p2 = document.getElementById('p2');
+
+        function p2touchStart(evt) {
+            startingY = evt.touches[0].clientY;
+        };
+
+        function p2touchMove(evt) {
+            var touch = evt.touches[0];
+            var change = touch.clientY - startingY;
+            console.log(change);
+            if (change < 0) {
+                return;
+            }
+            // p1.style.bottom = (change - screen.height) + 'px';
+            //p2.style.top = change + 150 + 'px';
+            p2.style.height = "300px";
+            evt.preventDefault();
+        };
+
+        function p2touchEnd(evt) {
+            var change = evt.changedTouches[0].clientY - startingY;
+            var half = 50;
+            change = Math.abs(change);
+            console.log(change);
+
+            //var half = screen.height / 4;
+            if (change < half) {
+                p2.style.bottom = '0vh';
+                 p2.style.height = "80px";
+                 console.log('closed');
+                 document.getElementsByTagName('body')[0].classList.remove('open');
+            } else {
+                p2.style.bottom = '80px';
+                 p2.style.height = "300px";
+                p2.style.display = 'block';
+                console.log('open');
+                document.getElementsByTagName('body')[0].classList.add('open');
+                // p2.style.display = 'none';
+            }
+        };
     </script>
 </body>
+
 </html>

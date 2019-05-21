@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Assistant|Comfortaa" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="css/screen.css"> -->
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <title>Details | BusBuddy</title>
-	
-	<style type="text/css">#l-root {
+#l-root {
 
     font-family: 'Assistant', sans-serif;
     height: 100vh;
@@ -774,43 +762,4 @@ nav ul li:nth-child(2) {
         margin-left: 1em;
     }
 
-  }</style>
-
-
-</head>
-<!-- <div id="root"></div> -->
-<body>
-		<a onclick="window.location.replace('/dashboard')">
-			<img class="c-arrow" src="img/arrow.svg" alt="gear">
-		</a>
-			        <header class="l-dashboard-header">
-			                <div class="c-header-text c-header-subtext">More Details</div>
-			        </header>
-
-			        <div class="c-subheader">Michael Carbone</div>
-
-			        <div class="c-subtext">Southeast Elementary School <br>
-			        Salt Lake City School District</div>
-			        <div class="c-subtext"><strong>Pick-up Location:</strong><br>Jackson & Fillmore Street</div>
-			        <div class="c-subtext"><strong>Pick-up Time: </strong>7:20am<br><strong>Bus Number: </strong>345</div>
-			        <div class="c-subheader">Scan History</div>
-
-
-			        <div class="timeline">
-                        <div class="c-detail__container right">
-                          <div class="content">
-                            <div class="c-detail__date">November 22, 2017</div>
-                            <div class="c-detail__scan">7:25am</div>
-                          </div>
-                        </div>
-                        <div class="c-detail__container right">
-                                        <div class="content">
-                                          <div class="c-detail__date">November 22, 2017</div>
-                                          <div class="c-detail__scan">7:25am</div>
-                                        </div>
-                        </div>
-                      </div>
-			</div>
-<!-- <script type="text/javascript" src="js/details-bundle.js"></script> -->
-</body>
-</html>
+  }

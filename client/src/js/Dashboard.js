@@ -6,11 +6,13 @@ class App extends React.Component{
 	constructor(props) {
 	    super(props);
 	    this.goMap = this.goMap.bind(this);
+	    this.setStatusBar = this.setStatusBar.bind(this);
 
 	    
 	    this.state = {
 			activeChild : 0,
-			data : null
+			data : null,
+			statusBarWidth: 0
 		};
 	}
 
@@ -52,6 +54,46 @@ class App extends React.Component{
 		});
 	}
 
+	componentDidMount(){
+		//Loop through calls to server
+		setInterval(() => {
+			let reponse;
+			fetch('/api/users', {
+					method: 'POST',
+					credentials: 'include',
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+				.then(response => response.json())
+				.then(res => {
+					//Check if anything changed
+					if ((res.children[this.state.activeChild].status == this.state.data.children[this.state.activeChild].status) && (res.children[this.state.activeChild].didScan == this.state.data.children[this.state.activeChild].didScan)){
+						console.log('no update');
+					} else {
+						console.log('setting data state to ', res);
+						this.setState({ data: res});
+
+						if (res.children[this.state.activeChild].status == 'Not on bus'){
+							this.setStatusBar(0);
+						} else if (res.children[this.state.activeChild].status == 'Bus is on its way'){
+							this.setStatusBar(1);
+						} else if (res.children[this.state.activeChild].status == 'Bus has arrived at school'){
+							this.setStatusBar(3);
+						} else if (res.children[this.state.activeChild].status == 'Bus arrived, child scanned on!'){
+							this.setStatusBar(2);
+						}
+					}
+					
+				})
+				.catch(err => {
+					console.log('Error: ', err);
+				});
+			
+			
+		}, 1500);
+	}
+
 	setActiveChild(index, num){
 		this.setState({ activeChild: index });
 		
@@ -66,6 +108,31 @@ class App extends React.Component{
 		});
 
 		kidsArr[index].classList.add("child-selected")
+
+		if (index === 0){
+			kidsArr[index].style.borderRadius = "8px 0px 0px 8px";
+			kidsArr[index].style.marginLeft = "-8px";
+			kidsArr[2].style.marginRight = "0px";
+		} else if (index === 2){
+			kidsArr[index].style.borderRadius = "0px 8px 8px 0px";
+			kidsArr[index].style.marginRight = "-8px";
+			kidsArr[0].style.marginLeft = "0px";
+		}
+		
+		//Sets the status bar width when child is changed
+		if (this.state.data.children[index].status == 'Not on bus'){
+			console.log(this.state.data.children[index].status);
+			this.setStatusBar(0);
+		} else if (this.state.data.children[index].status == 'Bus is on its way'){
+			this.setStatusBar(1);
+		} else if (this.state.data.children[index].status == 'Bus arrived, child scanned on!'){
+			this.setStatusBar(2);
+		} else if (this.state.data.children[index].status == 'Bus has arrived at school'){
+			this.setStatusBar(3);
+		} else {
+			console.log('Nah', this.state.data.children[index].status);
+			this.setStatusBar(0);
+		}
 	}
 
 	goMap(){
@@ -82,11 +149,63 @@ class App extends React.Component{
 	}
 
 	goSettings(){
-		window.location.replace('/settings');
+		window.location.replace('http://www.sabraydesign.com/busbuddy/settings.html');
 	}
 
 	goDetails(){
-		window.location.replace('/details');
+		window.location.replace('http://www.sabraydesign.com/busbuddy/details.html');
+	}
+
+	setStatusBar(code){
+		//0 = not started
+		//1 = bus driver started
+		//2 = child scanned on
+		//3 = bus driver ended
+
+		//When bus driver starts, set width to 20%, set color
+		//When child scans on, turn circle green around kid, advance with to 50%
+		//When driver ends, set width to 90%. If child was on, turn it all green. Else, turn it red
+		var theBar = document.getElementById("statusBar");
+		var icon1 = document.getElementById("status-icon1");
+		var icon2 = document.getElementById("status-icon2");
+		var icon3 = document.getElementById("status-icon3");
+
+		if (code == 0){
+			theBar.className = '';
+			theBar.classList.add('a-moveToZero');
+			icon1.style.border = "4px solid #bbb";
+			icon2.style.border = "4px solid #bbb";
+			icon3.style.border = "4px solid #bbb";
+			theBar.style.backgroundColor = "#bbb";
+		} else if (code == 1) {
+			theBar.className = '';
+			theBar.classList.add('a-moveToQuarter');
+			icon1.style.border = "4px solid #fdc03e";
+			icon2.style.border = "4px solid #bbb";
+			icon3.style.border = "4px solid #bbb";
+			theBar.style.backgroundColor = "#fdc03e";
+		} else if (code == 2) {
+			theBar.className = '';
+			theBar.classList.add('a-moveToFifty');
+			icon1.style.border = "4px solid green";
+			icon2.style.border = "4px solid green";
+			icon3.style.border = "4px solid #bbb";
+			theBar.style.backgroundColor = "green";
+		} else if (code == 3) {
+			theBar.className = '';
+			theBar.classList.add('a-moveToHundred');
+			if (this.state.data.children[this.state.activeChild].didScan == true){
+				icon1.style.border = "4px solid green";
+				icon2.style.border = "4px solid green";
+				icon3.style.border = "4px solid green";
+				theBar.style.backgroundColor = "green";
+			} else {
+				icon1.style.border = "4px solid red";
+				icon2.style.border = "4px solid red";
+				icon3.style.border = "4px solid red";
+				theBar.style.backgroundColor = "red";
+			}
+		}
 	}
 
 	render(){
@@ -108,17 +227,33 @@ class App extends React.Component{
 			var status = <span>{child.status}</span>;
 			var scheduled = <span>{child.scheduledTime}</span>;
 			var pickup = <span>{child.pickup}</span>;
+			var dots = document.getElementsByClassName("dot");
 
 			// var kidsList = <KidsList data={this.state.data} />
-
+			
 			var kidsList = this.state.data.children.map((value, index) => {
+				var color;
+				
+				if (value.status == "Bus is on its way"){
+					color = "#fdc03e";
+				} else if (value.status == "Not on bus") {
+					color = "#bbb";
+				} else if (value.status == "Child made it to school!"){
+					color = "green";
+				} else {
+					color = "#bbb";
+				}
+
 				if (index === 0){
-					return( <li className="kidsss child-selected" onClick={this.setActiveChild.bind(this, index)}><span className="dot"></span>{value.name}</li> )
+					return( <li className="kidsss child-selected" style={{borderRadius: "10px 0px 0px 10px", marginLeft: "-8px"}} onClick={this.setActiveChild.bind(this, index)}><span className="dot" style={{backgroundColor: color}}></span>{value.name}</li> )
 				} else { 
 					return(
-						<li className="kidsss" onClick={this.setActiveChild.bind(this, index)}><span className="dot"></span>{value.name}</li>
+						<li className="kidsss" onClick={this.setActiveChild.bind(this, index)}><span className="dot" style={{backgroundColor: color}}></span>{value.name}</li>
 				)}
 			});
+
+			
+
 		}	
 
 		return(
@@ -141,14 +276,14 @@ class App extends React.Component{
 				    <div className="c-status-box c-status-box__neutral">{status}</div>
 				    <div className="arrow-down"></div>
 				    <div className="c-timeline a-timeline">
-				        <span style={{width: "60%"}}></span>
-				        <div className="c-timeline__item c-timeline__home animation">
+				        <span id="statusBar" style={{width: this.state.statusBarWidth + '%'}}></span>
+				        <div id="status-icon1" className="c-timeline__item c-timeline__home animation">
 				            <img className="c-timeline__image" src="img/school_bus.svg" alt="School Bus" />
 				        </div>
-				        <div className="c-timeline__item c-timeline__bus animation">
+				        <div id="status-icon2" className="c-timeline__item c-timeline__bus animation">
 				            <img className="c-timeline__image-2" src="img/profile.svg" alt="Profile" />
 				        </div>
-				        <div className="c-timeline__item c-timeline__bus school">
+				        <div id="status-icon3" className="c-timeline__item c-timeline__bus school">
 				            <img className="c-timeline__image-3" src="img/school.svg" alt="School" />
 				        </div>
 				    </div>

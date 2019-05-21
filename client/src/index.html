@@ -1,123 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/screen.css">
-    <title>BusBuddy | Home</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome | BusBuddy</title>
+    <link href="https://fonts.googleapis.com/css?family=Hind+Vadodara:400,600,700|Frank+Ruhl+Libre:700" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="csgyle.css"> -->
+    <script src="https://unpkg.com/scrollreveal@4.0.0/scgreveal.min.js"></script>
+
+    <style type="text/css">
+        html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:0.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace, monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace, monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-0.25em}sup{top:-0.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,html [type="button"],[type="reset"],[type="submit"]{-webkit-appearance:button}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:0.35em 0.75em 0.625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0}[type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto}[type="search"]{-webkit-appearance:textfield;outline-offset:-2px}[type="search"]::-webkit-search-cancel-button,[type="search"]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}body{background:#fff;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}hr{border:0;display:block;height:1px;background:#E7EBF6;background:linear-gradient(to right, rgba(231,235,246,0.1) 0, rgba(231,235,246,0.6) 50%, rgba(231,235,246,0.1) 100%);margin-top:24px;margin-bottom:24px}ul,ol{margin-top:0;margin-bottom:24px;padding-left:24px}ul{list-style:disc}ol{list-style:decimal}li>ul,li>ol{margin-bottom:0}dl{margin-top:0;margin-bottom:24px}dt{font-weight:700}dd{margin-left:24px;margin-bottom:24px}img{height:auto;max-width:100%;vertical-align:middle}figure{margin:24px 0}figcaption{font-size:16px;line-height:24px;padding:8px 0}img,svg{display:block}table{border-collapse:collapse;margin-bottom:24px;width:100%}tr{border-bottom:1px solid #E7EBF6}th{text-align:left}th,td{padding:10px 16px}th:first-child,td:first-child{padding-left:0}th:last-child,td:last-child{padding-right:0}html{font-size:20px;line-height:30px}body{color:#5B6A87;font-size:1rem}body,button,input,select,textarea{font-family:"Hind Vadodara", sans-serif}a{color:#0181F6;text-decoration:none}a:hover,a:active{outline:0;text-decoration:underline}h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{clear:both;color:#1D2B4C;font-family:Frank Ruhl Libre, serif;font-weight:700}h1,.h1{font-size:40px;line-height:50px;letter-spacing:-0.1px}@media (min-width: 641px){h1,.h1{font-size:48px;line-height:58px;letter-spacing:-0.1px}}h2,.h2{font-size:32px;line-height:42px;letter-spacing:-0.1px}@media (min-width: 641px){h2,.h2{font-size:40px;line-height:50px;letter-spacing:-0.1px}}h3,.h3,blockquote{font-size:24px;line-height:34px;letter-spacing:-0.1px}@media (min-width: 641px){h3,.h3,blockquote{font-size:32px;line-height:42px;letter-spacing:-0.1px}}h4,h5,h6,.h4,.h5,.h6{font-size:20px;line-height:30px;letter-spacing:-0.1px}@media (max-width: 640px){.h1-mobile{font-size:40px;line-height:50px;letter-spacing:-0.1px}.h2-mobile{font-size:32px;line-height:42px;letter-spacing:-0.1px}.h3-mobile{font-size:24px;line-height:34px;letter-spacing:-0.1px}.h4-mobile,.h5-mobile,.h6-mobile{font-size:20px;line-height:30px;letter-spacing:-0.1px}}.text-light{color:rgba(255,255,255,0.8)}.text-light a{color:rgba(255,255,255,0.8)}.text-light h1,.text-light h2,.text-light h3,.text-light h4,.text-light h5,.text-light h6,.text-light .h1,.text-light .h2,.text-light .h3,.text-light .h4,.text-light .h5,.text-light .h6{color:#fff !important}.text-sm{font-size:18px;line-height:27px;letter-spacing:-0.1px}.text-xs{font-size:16px;line-height:24px;letter-spacing:-0.1px}h1,h2,.h1,.h2{margin-top:48px;margin-bottom:16px}h3,.h3{margin-top:36px;margin-bottom:12px}h4,h5,h6,.h4,.h5,.h6{margin-top:24px;margin-bottom:4px}p{margin-top:0;margin-bottom:24px}dfn,cite,em,i{font-style:italic}blockquote{color:#919EB7;font-style:italic;margin-top:24px;margin-bottom:24px;margin-left:24px}blockquote::before{content:"\201C"}blockquote::after{content:"\201D"}blockquote p{display:inline}address{color:#5B6A87;border-width:1px 0;border-style:solid;border-color:#E7EBF6;padding:24px 0;margin:0 0 24px}pre,pre h1,pre h2,pre h3,pre h4,pre h5,pre h6,pre .h1,pre .h2,pre .h3,pre .h4,pre .h5,pre .h6{font-family:"Courier 10 Pitch", Courier, monospace}pre,code,kbd,tt,var{background:#F4F7FE}pre{font-size:16px;line-height:24px;margin-bottom:1.6em;max-width:100%;overflow:auto;padding:24px;margin-top:24px;margin-bottom:24px}code,kbd,tt,var{font-family:Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;font-size:16px;padding:2px 4px}abbr,acronym{cursor:help}mark,ins{text-decoration:none}small{font-size:18px;line-height:27px;letter-spacing:-0.1px}b,strong{font-weight:700}button,input,select,textarea,label{font-size:20px;line-height:30px}.container,.container-sm{width:100%;margin:0 auto;padding-left:16px;padding-right:16px}@media (min-width: 481px){.container,.container-sm{padding-left:24px;padding-right:24px}}.container{max-width:1128px}.container-sm{max-width:848px}.container .container-sm{max-width:800px;padding-left:0;padding-right:0}.screen-reader-text{clip:rect(1px, 1px, 1px, 1px);position:absolute !important;height:1px;width:1px;overflow:hidden;word-wrap:normal !important}.screen-reader-text:focus{border-radius:2px;box-shadow:0 0 2px 2px rgba(0,0,0,0.6);clip:auto !important;display:block;font-size:16px;letter-spacing:-0.1px;font-weight:600;line-height:16px;text-decoration:none;background-color:#fff;color:#0181F6 !important;border:none;height:auto;left:8px;padding:16px 32px;top:8px;width:auto;z-index:100000}.list-reset{list-style:none;padding:0}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.text-primary{color:#0181F6}.text-secondary{color:#FF9083}.has-top-divider{position:relative}.has-top-divider::before{content:'';position:absolute;top:0;left:0;width:100%;display:block;height:1px;background:#E7EBF6;background:linear-gradient(to right, rgba(231,235,246,0.1) 0, rgba(231,235,246,0.6) 50%, rgba(231,235,246,0.1) 100%)}.has-bottom-divider{position:relative}.has-bottom-divider::after{content:'';position:absolute;bottom:0;left:0;width:100%;display:block;height:1px;background:#E7EBF6;background:linear-gradient(to right, rgba(231,235,246,0.1) 0, rgba(231,235,246,0.6) 50%, rgba(231,235,246,0.1) 100%)}.m-0{margin:0}.mt-0{margin-top:0}.mr-0{margin-right:0}.mb-0{margin-bottom:0}.ml-0{margin-left:0}.m-8{margin:8px}.mt-8{margin-top:8px}.mr-8{margin-right:8px}.mb-8{margin-bottom:8px}.ml-8{margin-left:8px}.m-16{margin:16px}.mt-16{margin-top:16px}.mr-16{margin-right:16px}.mb-16{margin-bottom:16px}.ml-16{margin-left:16px}.m-24{margin:24px}.mt-24{margin-top:24px}.mr-24{margin-right:24px}.mb-24{margin-bottom:24px}.ml-24{margin-left:24px}.m-32{margin:32px}.mt-32{margin-top:32px}.mr-32{margin-right:32px}.mb-32{margin-bottom:32px}.ml-32{margin-left:32px}.m-40{margin:40px}.mt-40{margin-top:40px}.mr-40{margin-right:40px}.mb-40{margin-bottom:40px}.ml-40{margin-left:40px}.m-48{margin:48px}.mt-48{margin-top:48px}.mr-48{margin-right:48px}.mb-48{margin-bottom:48px}.ml-48{margin-left:48px}.m-56{margin:56px}.mt-56{margin-top:56px}.mr-56{margin-right:56px}.mb-56{margin-bottom:56px}.ml-56{margin-left:56px}.m-64{margin:64px}.mt-64{margin-top:64px}.mr-64{margin-right:64px}.mb-64{margin-bottom:64px}.ml-64{margin-left:64px}.p-0{padding:0}.pt-0{padding-top:0}.pr-0{padding-right:0}.pb-0{padding-bottom:0}.pl-0{padding-left:0}.p-8{padding:8px}.pt-8{padding-top:8px}.pr-8{padding-right:8px}.pb-8{padding-bottom:8px}.pl-8{padding-left:8px}.p-16{padding:16px}.pt-16{padding-top:16px}.pr-16{padding-right:16px}.pb-16{padding-bottom:16px}.pl-16{padding-left:16px}.p-24{padding:24px}.pt-24{padding-top:24px}.pr-24{padding-right:24px}.pb-24{padding-bottom:24px}.pl-24{padding-left:24px}.p-32{padding:32px}.pt-32{padding-top:32px}.pr-32{padding-right:32px}.pb-32{padding-bottom:32px}.pl-32{padding-left:32px}.p-40{padding:40px}.pt-40{padding-top:40px}.pr-40{padding-right:40px}.pb-40{padding-bottom:40px}.pl-40{padding-left:40px}.p-48{padding:48px}.pt-48{padding-top:48px}.pr-48{padding-right:48px}.pb-48{padding-bottom:48px}.pl-48{padding-left:48px}.p-56{padding:56px}.pt-56{padding-top:56px}.pr-56{padding-right:56px}.pb-56{padding-bottom:56px}.pl-56{padding-left:56px}.p-64{padding:64px}.pt-64{padding-top:64px}.pr-64{padding-right:64px}.pb-64{padding-bottom:64px}.pl-64{padding-left:64px}.sr .has-animations .is-revealing{visibility:hidden}.button{display:inline-flex;font-size:16px;letter-spacing:-0.1px;font-weight:600;line-height:16px;text-decoration:none !important;background-color:#fff;background:linear-gradient(65deg, #fff 0, #DEEFFF 100%);color:#0181F6 !important;border:none;border-radius:2px;cursor:pointer;justify-content:center;padding:16px 32px;height:48px;text-align:center;white-space:nowrap}.button:active{outline:0}.button::before{border-radius:2px}.button-shadow{position:relative}.button-shadow::before{content:'';position:absolute;top:0;right:0;bottom:0;left:0;box-shadow:0 8px 24px rgba(29,43,76,0.12);mix-blend-mode:multiply;transition:box-shadow .15s ease}.button-shadow:hover::before{box-shadow:0 8px 24px rgba(29,43,76,0.25)}.button-sm{padding:8px 24px;height:32px}.button-sm.button-shadow::before{box-shadow:0 4px 16px rgba(29,43,76,0.12)}.button-sm.button-shadow:hover::before{box-shadow:0 4px 16px rgba(29,43,76,0.25)}.button-primary{color:#fff !important;transition:background .15s ease}.button-primary{background:#ff796a;background:linear-gradient(65deg, #FF9083 0, #FF6250 100%)}.button-primary:hover{background:#ff7e6f;background:linear-gradient(65deg, #ff9588 0, #ff6755 100%)}.button-primary.button-shadow::before{box-shadow:0 8px 16px rgba(255,144,131,0.25)}.button-primary.button-shadow:hover::before{box-shadow:0 8px 16px rgba(255,144,131,0.4)}.button-primary .button-sm.button-shadow::before{box-shadow:0 4px 16px rgba(255,144,131,0.25)}.button-primary .button-sm.button-shadow:hover::before{box-shadow:0 4px 16px rgba(255,144,131,0.4)}.button-block{display:flex}.accordion{font-size:16px;line-height:24px;list-style:none;padding:0}.accordion li::before,.accordion li::after{content:'';display:block;width:100%;height:1px;background:#E7EBF6}.accordion li+li::before{content:normal}.accordion p{margin-top:0}.accordion-title{display:flex;justify-content:space-between;align-items:center;padding:18px 0;cursor:pointer;color:#1D2B4C;font-weight:600}.accordion-title span{width:calc(100% - 32px)}.accordion-body{max-height:0;opacity:0;overflow:hidden;transition:max-height .15s ease-in-out,opacity .15s}.is-open .accordion-body{opacity:1}.accordion-body p:last-child{margin-bottom:24px}.accordion-icon{position:relative;width:16px;height:16px}.accordion-icon::before,.accordion-icon::after{content:'';position:absolute;background-color:#0181F6;transition:-webkit-transform .25s ease-out;transition:transform .25s ease-out;transition:transform .25s ease-out, -webkit-transform .25s ease-out}.accordion-icon::before{top:0;left:50%;width:2px;height:100%;margin-left:-1px}.accordion-icon::after{top:50%;left:0;width:100%;height:2px;margin-top:-1px}.is-open .accordion-icon{cursor:pointer}.is-open .accordion-icon::before{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.is-open .accordion-icon::after{-webkit-transform:rotate(180deg);transform:rotate(180deg)}@media (min-width: 641px){.accordion{font-size:18px;line-height:27px;letter-spacing:-0.1px}}.site-header{position:relative;padding:24px 0}.header-sun{position:absolute;top:-88px;right:-60px}.site-header-inner{position:relative;display:flex;justify-content:space-between;align-items:center}.header-links{display:inline-flex}.header-links li{display:inline-flex}.header-links a:not(.button){font-size:16px;line-height:24px;letter-spacing:-0.1px;font-weight:700;color:rgba(255,255,255,0.8);text-transform:uppercase;text-decoration:none;line-height:16px;padding:8px 24px}.header-links a:not(.button):hover,.header-links a:not(.button):active{color:#fff}@media (min-width: 641px){.header-sun{left:440px;right:auto}}@media (min-width: 1025px){.header-sun{left:auto;right:43%}}.hero{position:relative;text-align:center;padding-top:40px}.hero-paragraph{margin-bottom:32px}.hero-illustration{position:relative;margin-top:124px;padding-bottom:124px}.hero-media{position:relative}.hero-media img,.hero-media svg{width:100%;max-width:320px;height:auto;margin:0 auto;overflow:visible}.hero-shapes{position:absolute;top:-76px;right:calc(50% - 264px)}.hero-shapes svg{width:395px;height:auto}@media (min-width: 641px){.hero{text-align:left;padding-top:92px;padding-bottom:92px}.hero-inner{display:flex}.hero-copy{padding-right:48px;min-width:512px}.hero-illustration{margin-top:-80px;padding-bottom:0}.hero-media img,.hero-media svg{max-width:none;width:528px}.hero-shapes{top:-168px;right:auto;left:85px}.hero-shapes svg{width:724px}}@media (min-width: 1025px){.hero-copy{padding-right:88px;min-width:552px}}.clients .section-inner{padding-top:30px;padding-bottom:30px}.clients ul{display:flex;flex-wrap:wrap}.clients li{display:flex;justify-content:center;width:100%;padding:10px 0}@media (min-width: 641px){.clients .section-inner{padding-top:40px;padding-bottom:40px}.clients ul{justify-content:space-around}.clients li{width:auto}}.feature-extended{padding-top:48px}.feature-extended-image,.feature-extended-body{width:100%}.feature-extended-image{margin-bottom:24px}.feature-extended-image img,.feature-extended-image svg{width:100%;max-width:320px;height:auto;margin:0 auto;overflow:visible}.feature-extended-body{text-align:center}@media (min-width: 641px){.features-extended .section-paragraph{padding-left:72px;padding-right:72px;margin-bottom:0}.feature-extended{display:flex;align-items:center;padding-top:72px}.feature-extended:nth-child(even) .feature-extended-image{order:1}.feature-extended-image,.feature-extended-body{width:auto;padding:0 24px}.feature-extended-image{margin-bottom:0}.feature-extended-image svg{max-width:none;width:320px}.feature-extended-body{text-align:left}}@media (min-width: 1025px){.features-extended{position:relative}.features-extended::before{content:'';position:absolute;top:-200px;left:-440px;width:725px;height:651px;background-image:url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzI1IiBoZWlnaHQ9IjY1MSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+ICA8ZGVmcz4gICAgPHBhdGggZD0iTTY3OC42MDMgNjQzLjg1OGMxMTEuODItNTkuMTE1LTE1Ljc3LTE4NS4zNDQtMTUuNzctMzIxLjQ4MyAwLTEzNi4xMzgtLjI4NC0zNDAuMzcxLTEzNi40MjItMzIxLjEwNS0xMzYuMTM4IDE5LjI2Ni05NC4yODggMTg3LjE2Ny00NDEuOSAyNjkuMTQ4LTM0Ny42MTQgODEuOTggNDgyLjI3MyA0MzIuNTU0IDU5NC4wOTIgMzczLjQ0eiIgaWQ9ImEiLz4gIDwvZGVmcz4gIDx1c2UgZmlsbD0iI0Y0RjdGRSIgdHJhbnNmb3JtPSJtYXRyaXgoLTEgMCAwIDEgNzI0LjUxOCAwKSIgeGxpbms6aHJlZj0iI2EiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==);background-repeat:no-repeat}.feature-extended{padding-left:40px;padding-right:40px}.feature-extended-image,.feature-extended-body{padding:0 40px}.feature-extended-image img,.feature-extended-image svg{width:480px}}.testimonials .section-inner{padding-top:0}.testimonials .section-title{margin-bottom:48px}.testimonials-wrap{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:center;margin-right:-12px;margin-left:-12px}.testimonials-wrap:first-child{margin-top:-12px}.testimonials-wrap:last-child{margin-bottom:-12px}.testimonial{padding:12px;width:344px;max-width:344px;flex-grow:1}.testimonial-inner{position:relative;display:flex;flex-wrap:wrap;background:#fff;padding:32px 24px}.testimonial-inner>*{width:100%}.testimonial-inner::before{content:'';position:absolute;top:0;right:0;bottom:0;left:0;box-shadow:0 16px 48px #E7EBF6;mix-blend-mode:multiply}@supports (-ms-ime-align: auto){.testimonial-inner::before{box-shadow:0 16px 48px rgba(29,43,76,0.12)}}.testimonial-header img{width:56px;height:auto;margin-left:auto;margin-right:auto;border-radius:50%;box-shadow:0 16px 24px #E7EBF6}@supports (-ms-ime-align: auto){.testimonial-header img{box-shadow:0 16px 24px rgba(29,43,76,0.12)}}.testimonial-body p{margin-bottom:12px}.testimonial-footer{align-self:flex-end}.testimonial-name{font-weight:600;color:#1D2B4C}.testimonial-footer{margin-bottom:40px}@media (min-width: 641px){.testimonials .section-title{margin-bottom:64px}.testimonial{width:304px;max-width:304px}}@media (min-width: 1025px){.testimonials{position:relative}.testimonials::before{content:'';position:absolute;top:127px;left:calc(50% - 530px);width:1071px;height:598px;background-image:url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTA3MSIgaGVpZ2h0PSI1OTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPiAgPGRlZnM+ICAgIDxwYXRoIGQ9Ik0xMDUwLjMxIDU5Mi4xOTVjNjcuMDEtNTIuNzMtNTYuNTItODAuNzgtNTYuNTItMjE3LjUxIDAtMTM2LjcyOCA1Ni41Mi0zMzMtODEuNjktMzcwLjI3Qzc3My44OTMtMzIuODU1IDM2OS4zOCAxNzYuNjk4IDUxLjc1MyAyMjUuMDg3LTI2NS44NzYgMjczLjQ3NSA5ODMuMyA2NDQuOTI2IDEwNTAuMzEgNTkyLjE5NXoiIGlkPSJhIi8+ICA8L2RlZnM+ICA8dXNlIGZpbGw9IiNGNEY3RkUiIHRyYW5zZm9ybT0ibWF0cml4KC0xIDAgMCAxIDEwNzAuMzU4IDApIiB4bGluazpocmVmPSIjYSIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+);background-repeat:no-repeat}.testimonials .section-title{margin-bottom:80px}.testimonial:nth-child(odd){margin-top:48px}.testimonial:first-child{position:relative;margin-top:136px}.testimonial:first-child::before{content:'';display:block;position:absolute;top:-136px;left:calc(50% - 44px);width:89px;height:82px;background-image:url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODkiIGhlaWdodD0iODIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+ICA8ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPiAgICA8cGF0aCBmaWxsPSIjQTNBOUYxIiBkPSJNODQuMjUzIDBMNjAuNDI5IDIxLjk3MSA0OC4zNjIgNTEuMzM3IDY0LjA2NiA4MS4xNmwxOS40MzMtMTkuMzU4LTE4LjQxNC0yNS45NTZMODguNDI0IDMuNzI5eiIvPiAgICA8cGF0aCBmaWxsPSIjNkE3MkU0IiBkPSJNMTIuMTE2IDIxLjk1OUwwIDUxLjMzN2wxNS43NTggMjkuODI5IDE5LjM3NC0xOS4zNjMtMTguNDM5LTI1Ljk1N0w0MC4xOTYgMy43NDEgMzYuMDA2LjAxeiIvPiAgPC9nPjwvc3ZnPg==)}}.pricing .section-title{margin-bottom:48px}.pricing .accordion{margin-top:12px;margin-bottom:0}.pricing-tables-wrap{display:flex;flex-wrap:wrap;justify-content:center;margin-right:-12px;margin-left:-12px}.pricing-tables-wrap:first-child{margin-top:-12px}.pricing-tables-wrap:last-child{margin-bottom:-12px}.pricing-table{padding:12px;width:344px;max-width:344px;flex-grow:1}.pricing-table-inner{position:relative;display:flex;flex-wrap:wrap;background:#fff;padding:24px;height:100%}.pricing-table-inner>*{position:relative;width:100%}.pricing-table-inner::before{content:'';position:absolute;top:0;right:0;bottom:0;left:0;box-shadow:0 16px 48px #E7EBF6;mix-blend-mode:multiply}@supports (-ms-ime-align: auto){.pricing-table-inner::before{box-shadow:0 16px 48px rgba(29,43,76,0.12)}}.pricing-table-title{font-weight:600;color:#1D2B4C}.pricing-table-price{font-family:Frank Ruhl Libre, serif;font-weight:700}.pricing-table-price-currency{color:#5B6A87}.pricing-table-features{margin-bottom:90px}.pricing-table-features li{display:flex;align-items:center;margin-bottom:12px}.pricing-table-features li .list-icon{display:inline-flex;width:16px;height:12px;margin-right:12px}.pricing-table-cta{align-self:flex-end}.pricing-table-primary .pricing-table-inner{background:#0181F6}.pricing-table-primary .pricing-table-title{color:#fff}.pricing-table-primary .pricing-table-price-currency{color:rgba(255,255,255,0.8) !important}.container .container-sm.pricing-faqs{max-width:664px}@media (min-width: 641px){.pricing .section-title{margin-bottom:64px}.pricing .accordion{margin-top:36px}}@media (min-width: 1025px){.pricing{position:relative}.pricing::before{content:'';position:absolute;top:160px;right:-506px;width:725px;height:651px;background-image:url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzI1IiBoZWlnaHQ9IjY1MSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gIDxwYXRoIGQ9Ik02NzguNjAzIDY0My44NThjMTExLjgyLTU5LjExNS0xNS43Ny0xODUuMzQ0LTE1Ljc3LTMyMS40ODMgMC0xMzYuMTM4LS4yODQtMzQwLjM3MS0xMzYuNDIyLTMyMS4xMDUtMTM2LjEzOCAxOS4yNjYtOTQuMjg4IDE4Ny4xNjctNDQxLjkgMjY5LjE0OC0zNDcuNjE0IDgxLjk4IDQ4Mi4yNzMgNDMyLjU1NCA1OTQuMDkyIDM3My40NHoiIGZpbGw9IiNGNEY3RkUiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==);background-repeat:no-repeat}}.is-boxed{background:#F4F7FE}.body-wrap{background:#fff;overflow:hidden;display:flex;flex-direction:column;min-height:100vh}.boxed-container{max-width:1440px;margin:0 auto;box-shadow:0 16px 48px #E7EBF6}@supports (-ms-ime-align: auto){.boxed-container{box-shadow:0 16px 48px rgba(29,43,76,0.12)}}main{flex:1 0 auto}.section-inner{position:relative;padding-top:48px;padding-bottom:48px}@media (min-width: 641px){.section-inner{padding-top:80px;padding-bottom:80px}}.site-footer{position:relative;font-size:14px;line-height:22px;letter-spacing:0px;color:#919EB7;margin-top:80px}.site-footer::before{content:'';position:absolute;bottom:0;left:0;width:100%;height:300px;background-image:url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQ0MCIgaGVpZ2h0PSIyNjciIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+ICA8cGF0aCBkPSJNLjMzOC44NDJDMTY3LjQ1NSA4My4zOTQgNjQ3LjM0MiA4My4zOTQgMTQ0MCAuODQyVjI2N0guMzM4Qy0xNjYuNzggNy4wMS0xNjYuNzgtODEuNzEuMzM4Ljg0MnoiIGZpbGw9IiMxRDJCNEMiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==);background-size:1440px 300px;background-repeat:no-repeat}.site-footer a{color:#919EB7;text-decoration:none}.site-footer a:hover,.site-footer a:active{color:#fff;text-decoration:underline}.site-footer-inner{position:relative;display:flex;flex-wrap:wrap;padding-top:40px;padding-bottom:40px}.footer-brand,.footer-links,.footer-social-links,.footer-copyright{flex:none;width:100%;display:inline-flex;justify-content:center}.footer-brand,.footer-links,.footer-social-links{margin-bottom:24px}.footer-links li+li,.footer-social-links li+li{margin-left:16px}.footer-social-links li{display:inline-flex}.footer-social-links li a{padding:8px}@media (min-width: 641px){.site-footer{margin-top:116px}.site-footer::before{height:267px;background-size:1440px 267px}.site-footer-inner{justify-content:space-between}.footer-brand,.footer-links,.footer-social-links,.footer-copyright{flex:50%}.footer-brand,.footer-copyright{justify-content:flex-start}.footer-links,.footer-social-links{justify-content:flex-end}.footer-links{order:1;margin-bottom:0}}
+    </style>
 </head>
-<div id="root"></div>
-<body>
-    <div id="app"></div>
-    <header class="l-home-header">
-        <nav class="c-top-nav">
-            <ul class="c-top-nav__submenu">
-                <li>list1</li>
-                <li>list2</li>
-                <li>list3</li>
-            </ul>
-        </nav>
+<body class="is-boxed has-animations" style="background-color: white; ">
+    <div class="body-wrap boxed-container" style="box-shadow: none !important;">
+        <header class="site-header">
+            <div class="header-sun is-revealing">
+                <svg width="191" height="201" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient x1="50%" y1="0%" x2="4.666%" y2="38.561%" id="header-sun-c">
+                            <stop stop-color="#FED766" offset="0%"/>
+                            <stop stop-color="#FDC03E" offset="100%"/>
+                        </linearGradient>
+                    </defs>
+                        <path d="M78.72 44.447c-4.177 0-7.78 1.319-11.782 1.95-4.106.648-9.151-3.22-13.021-1.96-3.936 1.282-8.109 2.748-11.746 4.608-3.673 1.88-7.553 4.062-10.865 6.474-3.327 2.424-5.517 6.524-8.42 9.428-2.904 2.904-4.246 7.103-6.669 10.429-2.413 3.312-3.311 7.25-5.19 10.924-1.861 3.637-2.448 7.345-3.729 11.28-1.26 3.87-4.385 6.987-5.033 11.092C1.634 112.674 0 116.604 0 120.78c0 4.177.694 8.255 1.325 12.257.648 4.106-.786 8.865.474 12.734 1.282 3.936 2.97 8.102 4.831 11.74 1.879 3.673 6.753 5.67 9.166 8.98 2.423 3.328 4.466 6.94 7.37 9.843 2.905 2.905 5.4 6.48 8.726 8.904 3.312 2.413 8.601 1.5 12.274 3.378 3.637 1.862 6.108 6.328 10.044 7.61 3.87 1.26 8.387-.215 12.492.432 4.002.632 7.841 4.102 12.018 4.102 4.177 0 8.403-1.013 12.405-1.644 4.106-.648 7.963-2.465 11.833-3.726 3.936-1.281 6.808-4.661 10.445-6.522 3.673-1.88 6.36-4.613 9.672-7.025 3.327-2.424 7.491-3.41 10.395-6.313 2.904-2.904 8.919-3.404 11.343-6.73 2.412-3.312 1.89-8.756 3.769-12.43 1.861-3.636 2.752-7.648 4.034-11.585a76.417 76.417 0 0 0 2.852-11.85c.631-4.002 3.319-7.978 3.319-12.155 0-4.176-.643-8.475-1.274-12.477-.648-4.106-.354-8.728-1.614-12.598-1.282-3.935-4.11-7.567-5.97-11.204-1.879-3.674-3.522-7.832-5.935-11.144-2.423-3.327-8.219-3.824-11.123-6.728s-2.893-9.397-6.22-11.821c-3.311-2.412-9.742.089-13.415-1.79-3.637-1.861-5.739-7.418-9.675-8.7-3.87-1.26-8.789 1.68-12.894 1.032-4.002-.631-7.77-.903-11.947-.903" fill="#4DAAF7"/>
+                        <path d="M105.648 11.47c-4.177 0-7.78 1.319-11.782 1.95-4.106.648-9.151-3.22-13.021-1.96-3.936 1.282-8.109 2.748-11.746 4.608-3.673 1.88-7.553 4.062-10.865 6.474-3.327 2.424-5.517 6.524-8.42 9.428-2.904 2.904-4.246 7.103-6.669 10.429-2.413 3.312-3.311 7.25-5.19 10.924-1.861 3.637-2.448 7.345-3.729 11.281-1.26 3.869-4.385 6.986-5.033 11.091-.631 4.002-2.265 7.932-2.265 12.108 0 4.177.694 8.255 1.325 12.257.648 4.106-.786 8.865.474 12.734 1.282 3.936 2.97 8.102 4.831 11.74 1.879 3.673 6.753 5.67 9.166 8.981 2.423 3.327 4.466 6.939 7.37 9.842 2.905 2.905 5.4 6.481 8.726 8.904 3.312 2.413 8.601 1.5 12.274 3.378 3.637 1.862 6.108 6.328 10.044 7.61 3.87 1.26 8.387-.215 12.492.432 4.002.632 7.841 4.102 12.018 4.102 4.177 0 8.403-1.013 12.405-1.644 4.106-.648 7.963-2.465 11.833-3.726 3.936-1.281 6.808-4.661 10.445-6.522 3.673-1.879 6.36-4.613 9.672-7.025 3.327-2.424 7.491-3.409 10.395-6.313s8.919-3.404 11.343-6.73c2.412-3.312 1.89-8.756 3.769-12.43 1.861-3.636 2.752-7.648 4.034-11.585a76.417 76.417 0 0 0 2.852-11.85c.631-4.002 3.319-7.978 3.319-12.155 0-4.176-.643-8.475-1.274-12.477-.648-4.106-.354-8.728-1.614-12.598-1.282-3.935-4.11-7.567-5.97-11.204-1.879-3.674-3.522-7.832-5.935-11.144-2.423-3.327-8.219-3.824-11.123-6.728s-2.893-9.397-6.22-11.821c-3.311-2.412-9.742.089-13.415-1.79-3.637-1.861-5.739-7.418-9.675-8.7-3.87-1.26-8.789 1.68-12.894 1.032-4.002-.631-7.77-.903-11.947-.903m0 165c-4.179 0-8.742.7-12.764.125-4.119-.59-7.195-6.328-11.108-7.478-3.979-1.17-7.496-2.761-11.215-4.466-3.759-1.723-7.025-3.719-10.473-5.941-3.467-2.236-7.628-3.244-10.733-5.939-3.111-2.699-7.273-4.441-9.972-7.551-2.694-3.105-6.371-5.834-8.606-9.302-2.223-3.448-5.19-7.008-6.913-10.767-1.704-3.719-1.107-8.69-2.277-12.668-1.15-3.913-.759-8.281-1.349-12.4C19.663 96.06 19 91.982 19 87.803c0-4.178 2.794-7.953 3.369-11.974.59-4.12 1.441-7.801 2.592-11.713 1.17-3.979-.333-8.811 1.373-12.53 1.723-3.759 4.426-7.029 6.649-10.476 2.236-3.468 5.533-6.035 8.227-9.14 2.699-3.11 3.162-8.597 6.272-11.295 3.105-2.694 8.395-2.699 11.862-4.934 3.448-2.224 5.918-6.427 9.677-8.15 3.719-1.705 8.697-.204 12.675-1.374 3.913-1.151 7.637-2.654 11.756-3.244 4.022-.575 8.018-1.728 12.196-1.728 4.179 0 8.583-1.702 12.605-1.126 4.12.589 8.699.65 12.611 1.8 3.979 1.17 7.424 4.556 11.143 6.261 3.759 1.724 5.196 7.359 8.643 9.582 3.468 2.236 8.569 1.938 11.674 4.632 3.111 2.7 6.583 5.15 9.282 8.261a88.733 88.733 0 0 1 7.469 9.966c2.223 3.447 2.108 8.15 3.831 11.909 1.705 3.72 3.362 7.284 4.532 11.262 1.15 3.913.631 7.956 1.22 12.076.576 4.021 2.063 7.757 2.063 11.935 0 4.179-1.059 7.976-1.635 11.998-.589 4.12 2.524 8.991 1.374 12.903-1.17 3.978-7.22 6.027-8.925 9.746-1.723 3.759 1.141 9.979-1.082 13.428-2.236 3.467-8.194 4.202-10.888 7.306-2.699 3.112-2.788 8.88-5.899 11.578-3.105 2.695-5.935 6.454-9.403 8.69-3.448 2.223-8.632 1.96-12.391 3.684-3.719 1.705-8.238 1.277-12.216 2.447-3.912 1.15-7.479 3.951-11.599 4.54-4.021.575-8.231 2.347-12.409 2.347" fill="url(#header-sun-c)"/>
+                </svg>
+            </div>
+            <div class="container">
+                <div class="site-header-inner">
+                    <div class="brand header-brand">
+                        <h1 class="m-0">
+                            <a href="#">
+                                <img style="width: 50px;" src="img/bblogo.png">
+                            </a>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-inner">
+                        <div class="hero-copy">
+                            <h1 class="hero-title mt-0">Welcome to BusBuddy</h1>
+                            <p class="hero-paragraph">A multi-purpose tool that helps schools and parents keep track of buses and the children on board.</p>
+                            <p class="hero-cta"><a class="button button-primary button-shadow" style="cursor: pointer;" href="/login">Sign up for free</a></p>
+                        </div>
+                        <div class="hero-illustration">
+                            <div class="hero-shapes is-revealing">
+                                <svg width="724" height="672" viewBox="0 0 724 672" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <linearGradient x1="87.336%" y1="7.447%" x2="66.279%" y2="44.56%" id="hero-shapes-a">
+                                             <stop stop-color="#FED766" offset="0%"/>
+                            <stop stop-color="#FDC03E" offset="100%"/>
+                                        </linearGradient>
+                                        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="hero-shapes-b">
+                                            <stop stop-color="#82DDFC" offset="0%"/>
+                                            <stop stop-color="#0181F6" offset="100%"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <path d="M675.09 555.602c101.344 0-138.133-250.973-138.133-352.317S664.223.91 562.879.91C461.535.91.543 80.5.543 181.844S573.746 555.602 675.09 555.602z" fill="url(#hero-shapes-a)"/>
+                                    <path d="M667.21 644.029c111.82-59.115-15.77-185.344-15.77-321.482 0-136.138-.284-340.372-136.422-321.106C378.88 20.708 433.487 224.707 85.874 306.688c-347.614 81.98 469.517 396.456 581.336 337.34z" transform="matrix(-1 0 0 1 723.483 15)" fill="url(#hero-shapes-b)"/>
+                                    <path d="M532.631 556.964c23.168-12.535-176.81-30.951-173.117-8.023-16.445-27.256-.668 111.452-1.357 97.18-17.805 14.436 202.398 23.384 180.678 25.205 4.694-22.81 13.508-143.183-15.392-139.49-1.105-3.22 20.111-5.785 9.188 25.128" fill="#FFE5F1"/>
+                                    <path d="M500.754 531.682c23.168-12.535-176.81-30.95-173.117-8.023-16.445-27.256-.668 111.452-1.357 97.18-17.805 14.436 202.398 23.384 180.678 25.205 4.694-22.809 13.508-143.183-15.392-139.49-1.105-3.219 20.111-5.785 9.188 25.128m-1.834 1.51c22.705-12.117 22.727 86.08 26.346 108.244-16.116-26.348-196.655-8.263-197.329-22.06-17.45 13.955 2.35-93.395-18.937-91.634 4.601-22.049 209.238-22.41 180.916-18.84" fill="#2A4F83"/>
+                                </svg>
+                            </div>
+                            <div class="hero-media is-revealing" style="perspective:800px">
+                                <img style="perspective:800px" src="img/ui1.png">
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="features-extended section">
+                <div class="container">
+                    <div class="features-extended-inner section-inner has-top-divider">
+                        <div class="features-extended-header text-center">
+                            <div class="container-sm">
+                                <h2 class="section-title mt-0">Welcome to peace of mind</h2>
+                                <p class="section-paragraph">With the BusBuddy multi-stage process, you should be comfortable knowing your child is making it to school safely.</p>
+                            </div>
+                        </div>
+                        <div class="feature-extended">
+                            <div class="feature-extended-image is-revealing">
+                                <svg width="480" height="320" viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
-        <div class="c-title">
-            <div class="c-graphic">
-                <img src="https://via.placeholder.com/300x300" alt="">
-            </div>
-            <div class="c-content c-home-banner">
-                <div class="c-home-banner__text">
-                    <h1>Bus Buddy</h1>
-                    <h3>Cool tagline, one kind of long sentence</h3>
-                    <p>text summary of the product and how we will do it, maybe some stats and info about the current
-                        state
-                        of
-                        the bus system.</p>
+                                    <defs>
+                                        <path id="features-1-a" d="M13 0h340v240H13z"/>
+                                        <linearGradient x1="50%" y1="0%" x2="4.666%" y2="38.561%" id="features-1-b">
+                                            <stop stop-color="#FFE4A2" offset="0%"/>
+                                            <stop stop-color="#FFC570" offset="100%"/>
+                                        </linearGradient>
+                                        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="features-1-c">
+                                            <stop stop-color="#2EF8C1" offset="0%"/>
+                                            <stop stop-color="#5FFAD0" offset="100%"/>
+                                        </linearGradient>
+                                        <filter id="dropshadow-1" x="-500%" y="-500%" width="1000%" height="1000%">
+                                            <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#E7EBF6" flood-opacity="1" />
+                                        </filter>
+                                        <filter x="-500%" y="-500%" width="1000%" height="1000%" filterUnits="objectBoundingBox" id="dropshadow-f-1">
+                                            <feOffset dy="16" in="SourceAlpha" result="shadowOffsetOuter"/>
+                                            <feGaussianBlur stdDeviation="24" in="shadowOffsetOuter" result="shadowBlurOuter"/>
+                                            <feColorMatrix values="0 0 0 0 0.06 0 0 0 0 0.13 0 0 0 0 0.34 0 0 0 0.14 0" in="shadowBlurOuter"/>
+                                        </filter>
+                                    </defs>
+                                    <g fill="#F4F7FE">
+                                        <path d="M281.984 251.89c88.366 0 65.883-12.77 65.883-101.136S378.366 0 290 0 .043 62.388.043 150.754c0 88.365 193.576 101.137 281.941 101.137z"/>
+                                        <path d="M382.88 319.917c33.137 0 96.563-56.96 96.563-90.098 0-33.137-82.61-7.086-115.746-7.086-33.137 0-27.301-5.2-27.301 27.938 0 33.137 13.347 69.246 46.484 69.246z"/>
+                                    </g>
+                                    <g transform="translate(57 40)">
+                                        <use fill="#FFF" xlink:href="#features-1-a" style="mix-blend-mode:multiply;filter:url(#dropshadow-f-1)"/>
+                                        <use fill="#FFF" xlink:href="#features-1-a"/>
+                                        <path d="M41.53 58.446C31.926 59.796 22.195 66.22 13 75.888v76.918c8.824-10.661 18.335-18.522 28.53-19.954 43.753-6.15 103.475 17.59 70.166 0-33.308-17.59-26.413-80.555-70.165-74.406z" fill="#FF9083"/>
+                                        <path d="M350.002 75.426c-21.168-10.785-64.642 27.763-75.428 48.93-10.785 21.168 39.112-19.155 60.28-8.37 8.496 4.329 14.02 11.38 18.146 16.9V77.136a42.51 42.51 0 0 0-2.998-1.709z" fill="#FFE9E7"/>
+                                        <path d="M101.252 71.947l-15.99 3.362-13.844 9.55-16.191-2.896-16.002.685-11.23 16.377-11.617 15.88c.897-.248-.229-.248-3.378 0v4.63c2.796-.056 4.72-.056 5.771 0l13.016-15.299 10.25-16.311 14.61-.043 14.869-2.487 15.086-3.598 14.86-4.954 13.644-6.775 14.439 9.359 14.47 9.994 15.46 6.435 15.691-3.123 14.356-9.018 16.961-4.307-2.498-3.217-14.348 6.003-15.466 4.731-14.526 6.572-14.131-10.298-16.061-7.536L115.623 65l-14.371 6.947z" fill="url(#features-1-b)"/>
+                                    </g>
+                                    <circle fill="#FFF" cx="293" cy="256" r="40" style="mix-blend-mode:multiply;filter:url(#dropshadow-f-1)"/>
+                                    <circle fill="#FFF" cx="293" cy="256" r="40"/>
+                                    <path d="M261.087 181l-25.875 26.383-27.797 22.242L187 258.198l48.427.732-9.741 46.869 26.914-23.553 20.281-29.412 28.216-25.869-48.446-.373L261.087 181zm-34.554 45.736l24.909-28.358-7.837 35.816 45.929-1.117-31.869 26.36-25.067 33.697 8.631-38.989-44.945.239 30.249-27.648z" fill="url(#features-1-c)"/>
+                                    <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" x="0px" y="0px" viewBox="0 0 100 125"><g transform="translate(0,-940.36218)"><path style="text-indent:0;text-transform:none;direction:ltr;block-progression:tb;baseline-shift:baseline;color:yellow;enable-background:accumulate;" d="m 5.9999985,958.36217 c -3.2894,0 -6,2.7106 -6,6 l 0,68.00003 a 2.0002,2.0002 0 0 0 2,2 l 0,6 c 0,3.2894 2.7106,6 6,6 l 3.9999995,0 c 3.2894,0 6,-2.7106 6,-6 l 0,-6 38,0 0,6 c 0,3.2894 2.7106,6 6,6 l 4.000001,0 c 3.2894,0 6,-2.7106 6,-6 l 0,-6 a 2.0002,2.0002 0 0 0 2,-2 l 0,-68.00003 c 0,-3.2894 -2.7106,-6 -6,-6 l -62.0000005,0 z m 0,4 62.0000005,0 c 1.1426,0 2,0.85744 2,2 l 0,4 -66.0000005,0 0,-4 c 0,-1.14256 0.8574,-2 2,-2 z m -2,10 30.9999995,0 0,28.00003 -30.9999995,0 0,-28.00003 z m 34.9999995,0 31.000001,0 0,28.00003 -31.000001,0 0,-28.00003 z m 50.000001,6 c -6.0514,0 -11,4.94856 -11,11 0,5.37028 3.893299,9.86712 9,10.81253 l 0,44.1562 c -0.015,1.0567 0.943299,2.0313 2,2.0313 1.056703,0 2.014903,-0.9746 2.000003,-2.0313 l 0,-44.1562 C 96.106802,999.22928 100,994.73244 100,989.36217 c 0,-6.05142 -4.948498,-11 -11.000001,-11 z m 0,4 c 3.889702,0 7.000003,3.11034 7.000003,7 0,3.88965 -3.1103,7 -7.000003,7 -3.8896,0 -7,-3.11037 -7,-7 0,-3.88964 3.1104,-7 7,-7 z m -85.0000005,22.00003 66.0000005,0 0,26 -66.0000005,0 0,-26 z m 10.9999995,6 c -3.8423,0 -6.9999995,3.1577 -6.9999995,7 0,3.8423 3.1576995,7 6.9999995,7 3.8423,0 7,-3.1577 7,-7 0,-3.8423 -3.1577,-7 -7,-7 z m 44,0 c -3.842299,0 -7,3.1577 -7,7 0,3.8423 3.157701,7 7,7 3.8423,0 7.000001,-3.1577 7.000001,-7 0,-3.8423 -3.157701,-7 -7.000001,-7 z m -44,4 c 1.6805,0 3,1.3195 3,3 0,1.6805 -1.3195,3 -3,3 -1.680499,0 -3,-1.3195 -3,-3 0,-1.6805 1.319501,-3 3,-3 z m 44,0 c 1.6805,0 3,1.3195 3,3 0,1.6805 -1.3195,3 -3,3 -1.680499,0 -3,-1.3195 -3,-3 0,-1.6805 1.319501,-3 3,-3 z m -32.1875,1 a 2.0002,2.0002 0 0 0 -1.8125,2 l 0,8 a 2.0002,2.0002 0 0 0 2,2 l 20,0 a 2.0002,2.0002 0 0 0 2,-2 l 0,-8 a 2.0002,2.0002 0 0 0 -2,-2 l -20,0 a 2.0002,2.0002 0 0 0 -0.1875,0 z m 2.1875,4 16,0 0,4 -16,0 0,-4 z m -22.9999995,15 7.9999995,0 0,6 c 0,1.1426 -0.857399,2 -2,2 l -3.9999995,0 c -1.1426,0 -2,-0.8574 -2,-2 l 0,-6 z m 53.9999995,0 8.000001,0 0,6 c 0,1.1426 -0.8574,2 -2,2 l -4.000001,0 c -1.1426,0 -2,-0.8574 -2,-2 l 0,-6 z" fill="#000000" fill-opacity="1" stroke="none" marker="none" visibility="visible" display="inline" overflow="visible"/></g></svg>
+                                </svg>
+                            </div>
+                            <div class="feature-extended-body">
+                                <h3 class="mt-0">Stage 1: Driver Starts the route</h3>
+                                <p>Each morning, the bus driver will start the route and let each connected parent know the bus is on its way.</p>
+                            </div>
+                        </div>
+                        <div class="feature-extended">
+                            <div class="feature-extended-image is-revealing">
+                                <svg width="480" height="320" viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <defs>
+                                        <path id="feature-2-a" d="M0 17h340v240H0z"/>
+                                        <path d="M104.361 69c5.222-9.45 8.194-20.1 8.194-31.66 0-36.45-19.827 0-56.278 0C19.827 37.34 0-25.017 0 11.434 0 29.047 2.36 50.913 8.91 69h95.451z" id="feature-2-b"/>
+                                        <linearGradient x1="50%" y1="0%" x2="4.666%" y2="38.561%" id="feature-2-c">
+                                            <stop stop-color="#FFE4A2" offset="0%"/>
+                                            <stop stop-color="#FFC570" offset="100%"/>
+                                        </linearGradient>
+                                        <path id="feature-2-f" d="M169.569 25.569h80v80h-80z"/>
+                                        <filter x="-500%" y="-500%" width="1000%" height="1000%" filterUnits="objectBoundingBox" id="dropshadow-f-2">
+                                            <feOffset dy="16" in="SourceAlpha" result="shadowOffsetOuter"/>
+                                            <feGaussianBlur stdDeviation="24" in="shadowOffsetOuter" result="shadowBlurOuter"/>
+                                            <feColorMatrix values="0 0 0 0 0.06 0 0 0 0 0.13 0 0 0 0 0.34 0 0 0 0.14 0" in="shadowBlurOuter"/>
+                                        </filter>
+                                    </defs>
+                                    <g fill="none" fill-rule="evenodd">
+                                        <path d="M456.32 303.547c88.366 0-106.453-64.428-106.453-152.793C349.867 62.388 380.366 0 292 0S2.043 62.388 2.043 150.754c0 88.365 365.912 152.793 454.277 152.793z" fill="#F4F7FE"/>
+                                        <g transform="translate(70 23)">
+                                            <use fill="#FFF" xlink:href="#feature-2-a" style="mix-blend-mode:multiply;filter:url(#dropshadow-f-2)"/>
+                                            <use fill="#FFF" xlink:href="#feature-2-a"/>
+                                            <path d="M31.625 123.62c33.137 0 18.98 85.493 18.98 52.356 0-33.137 100.43-91.442 67.293-91.442-20.35 0-77.099-9.132-117.898-8.503v47.317c10.468.547 21.558.272 31.625.272z" fill="#FFE5F1"/>
+                                            <g transform="translate(140 189)">
+                                                <mask id="feature-2-d" fill="#fff">
+                                                    <use xlink:href="#feature-2-b"/>
+                                                </mask>
+                                                <use fill="#FF6DB1" xlink:href="#feature-2-b"/>
+                                                <path d="M38 64C2.71 64-26 35.29-26 0S2.71-64 38-64v4C4.916-60-22-33.084-22 0S4.916 60 38 60 98 33.084 98 0h4c0 35.29-28.71 64-64 64zm0-20C13.738 44-6 24.262-6 0s19.738-44 44-44v4C15.944-40-2-22.056-2 0s17.944 40 40 40S78 22.056 78 0h4c0 24.262-19.738 44-44 44zm0-20C24.767 24 14 13.234 14 0s10.767-24 24-24v4c-11.028 0-20 8.972-20 20s8.972 20 20 20 20-8.972 20-20h4c0 13.234-10.767 24-24 24z" fill="url(#feature-2-c)" mask="url(#feature-2-d)"/>
+                                            </g>
+                                            <g transform="rotate(45 209.569 65.569)">
+                                                <use fill="#000" filter="url(#feature-2-e)" xlink:href="#feature-2-f"/>
+                                                <use fill="#FFF" xlink:href="#feature-2-f" style="mix-blend-mode:multiply;filter:url(#dropshadow-f-2)"/>
+                                                <use fill="#FFF" xlink:href="#feature-2-f"/>
+                                            </g>
+                                            <path fill="#6A72E4" d="M154.307 0l-32.023 5.12L98.602 29.28 92 61.86l7.24 32.212 24.385 22.215 31.416 9.954 33.082-7.08 21.539-25.772 11.769-32.35-6.125.919-9.676 29.102-20.67 22.63-29.919 6.482-29.196-7.732-21.477-21.331-9.361-29.25 7.244-30.474 23.175-20.831L154.419.165z"/>
+                                            <path fill="#A3A9F1" d="M155.041 107.506l-32.137-13.509-10.217-32.136 11.426-30.928 30.857-12.855.048 3.718-27.333 12.71-11.828 27.355 11.467 27.717 27.717 11.155 29.33-9.54 10.83-29.274 2.194.484-11.986 29.826z"/>
+                                            <path fill="#6A72E4" d="M155.041 85.403l-23.39-23.542 23.436-24.15-.298 3.456-20.48 20.694 20.732 20.874 19.406-21.089 3.877.432z"/>
+                                        </g>
+                                    </g>
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve"><g><path d="M69.184,40.862c0,1.633,1.324,2.957,2.957,2.957s2.957-1.324,2.957-2.957c0-8.814-7.145-15.958-15.958-15.958   c-1.634,0-2.956,1.324-2.956,2.957s1.322,2.957,2.956,2.957C64.688,30.817,69.184,35.314,69.184,40.862z"/><path d="M59.14,1.25c-1.634,0-2.956,1.324-2.956,2.957c0,1.633,1.322,2.957,2.956,2.957c18.61,0,33.698,15.086,33.698,33.698   c0,1.633,1.323,2.957,2.957,2.957c1.632,0,2.957-1.324,2.957-2.957C98.752,18.985,81.016,1.25,59.14,1.25z"/><path d="M79.862,53.33c-1.634,0-2.957,1.324-2.957,2.958c0,10.854,0,13.5,0,24.356c0,6.531-5.295,11.826-11.827,11.826   c-17.932,0-27.654,0-45.587,0c-6.532,0-11.827-5.295-11.827-11.826c0-17.932,0-27.654,0-45.587c0-6.532,5.295-11.827,11.827-11.827   c10.796,0,13.381,0,24.176,0c1.633,0,2.957-1.324,2.957-2.957c0-1.633-1.324-2.958-2.957-2.958c-10.795,0-13.38,0-24.176,0   c-9.797,0-17.74,7.943-17.74,17.741c0,17.933,0,27.656,0,45.587c0,9.798,7.943,17.74,17.74,17.74c17.933,0,27.655,0,45.587,0   c9.798,0,17.741-7.942,17.741-17.74c0-10.856,0-13.502,0-24.356C82.819,54.654,81.494,53.33,79.862,53.33z"/><circle cx="59.14" cy="40.862" r="4.131"/><path d="M59.14,13.077c-1.634,0-2.956,1.324-2.956,2.957s1.322,2.957,2.956,2.957c12.079,0,21.871,9.792,21.871,21.872   c0,1.633,1.324,2.957,2.957,2.957s2.957-1.324,2.957-2.957C86.925,25.517,74.484,13.077,59.14,13.077z"/><path d="M32.099,51.648v12.404c0,2.196,1.787,3.984,3.983,3.984h12.405c2.196,0,3.984-1.788,3.984-3.984v-3.245   c5.235,0,8.073,0,13.634,0c0,2.944,0,2.813,0,5.758C61.069,71.601,56.035,76.636,51,81.67c-12.898,0-19.637,0-32.536,0   c0-9.512,0-17.293,0-25.178c0-6.98,0-14.042,0-22.461c10.797,0,14.408,0,25.204,0c1.633,0,2.957-1.324,2.957-2.957   s-1.324-2.957-2.957-2.957c-10.795,0-14.407,0-25.204,0c-3.265,0-5.913,2.647-5.913,5.914c0,17.934,0,29.708,0,47.639   c0,3.267,2.647,5.914,5.913,5.914c12.899,0,19.638,0,32.536,0c1.729,0,2.958-0.509,4.181-1.731   c5.036-5.035,10.07-10.071,15.105-15.106c1.224-1.223,1.732-2.451,1.732-4.181c0-2.944,0-2.813,0-5.758   c0-3.267-2.648-5.914-5.914-5.914c-5.561,0-8.398,0-13.634,0v-3.245c0-2.196-1.788-3.983-3.984-3.983H36.082   C33.886,47.665,32.099,49.452,32.099,51.648z"/></g></svg>
+                                </svg>
+                            </div>
+                            <div class="feature-extended-body">
+                                <h3 class="mt-0">Stage 2: Child scans on</h3>
+                                <p>When the bus arrives, your child scans their card onto our custom built Buddy on board. An SMS message will be sent to each connected parent.</p>
+                            </div>
+                        </div>
+                        <div class="feature-extended">
+                            <div class="feature-extended-image is-revealing">
+                                <svg width="480" height="320" viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <defs>
+                                        <path id="features-3-a" d="M0 0h320v240H0z"/>
+                                        <filter x="-500%" y="-500%" width="1000%" height="1000%" filterUnits="objectBoundingBox" id="dropshadow-f-3">
+                                            <feOffset dy="16" in="SourceAlpha" result="shadowOffsetOuter"/>
+                                            <feGaussianBlur stdDeviation="24" in="shadowOffsetOuter" result="shadowBlurOuter"/>
+                                            <feColorMatrix values="0 0 0 0 0.06 0 0 0 0 0.13 0 0 0 0 0.34 0 0 0 0.14 0" in="shadowBlurOuter"/>
+                                        </filter>
+                                    </defs>
+                                    <g fill="none" fill-rule="evenodd">
+                                        <g fill="#F4F7FE">
+                                            <path d="M465.727 112.934c33.137 0-5.727-64.359-5.727-97.496s-20.974-2.617-54.111-2.617S340-17.699 340 15.438s92.59 97.496 125.727 97.496zM454.277 319.202c88.366 0-106.453-64.427-106.453-152.793S0 41.866 0 166.409s365.912 152.793 454.277 152.793z"/>
+                                        </g>
+                                        <g transform="translate(80 40)">
+                                            <use fill="#FFF" xlink:href="#features-3-a" style="mix-blend-mode:multiply;filter:url(#dropshadow-f-2)"/>
+                                            <use fill="#FFF" xlink:href="#features-3-a"/>
+                                            <path d="M131.594 185.875c33.137 0-88.594-28.109-88.594-61.246 0-22.23-19.932-41.805-43-52.281v75.216c33.425 22.264 106.39 38.311 131.594 38.311z" fill="#FFF6E7"/>
+                                            <path d="M320 62.182c-27.86.37-87.107 29.127-111.969 29.127-33.137 0 56.035 22.472 56.035 55.609 0 19.031 26.93 26.733 55.934 29.84V62.182z" fill="#FFC570"/>
+                                        </g>
+                                        <path fill="#FFF" d="M216 24h80v80h-80z" style="mix-blend-mode:multiply;filter:url(#dropshadow-f-2)"/>
+                                        <path fill="#FFF" d="M216 24h80v80h-80z"/>
+                                        <path d="M267 85h4v4h-4v-4zm0 12h4v4h-4v-4zm0 12h4v4h-4v-4zm0 12h4v4h-4v-4zm0 12h4v4h-4v-4zm0 12h4v4h-4v-4zm12-60h4v4h-4v-4zm0 12h4v4h-4v-4zm0 12h4v4h-4v-4zm0 12h4v4h-4v-4zm0 12h4v4h-4v-4zm0 12h4v4h-4v-4zm12-60h4v4h-4v-4zm0 12h4v4h-4v-4zm0 12h4v4h-4v-4zm0 12h4v4h-4v-4zm0 12h4v4h-4v-4zm0 12h4v4h-4v-4zm12-60h4v4h-4v-4zm0 12h4v4h-4v-4zm0 12h4v4h-4v-4zm0 12h4v4h-4v-4zm0 12h4v4h-4v-4zm0 12h4v4h-4v-4zm12-60h4v4h-4v-4zm0 12h4v4h-4v-4zm0 12h4v4h-4v-4zm0 12h4v4h-4v-4zm0 12h4v4h-4v-4zm0 12h4v4h-4v-4zm12-60h4v4h-4v-4zm0 12h4v4h-4v-4zm0 12h4v4h-4v-4zm0 12h4v4h-4v-4zm0 12h4v4h-4v-4zm0 12h4v4h-4v-4z" fill="#5FFAD0"/>
+                                        <path d="M126 197.156l23.039 15.424L173.495 225l23.756-13.614L223 198.298l-12.63-5.63 5.38 4.892-21.271 12.342-20.984 13.869-21.457-13.07-21.796-12.346 10.232-4.303L137.77 191 126 197.156zm82.883-5.15l1.486.662-1.087-.987-.399.325z" fill="#82DDFC"/>
+                                        <path fill="#0181F6" d="M206.966 215.77l8.251 3.372-21.268 11.975-20.62 13.946-20.588-14.002-20.915-12.222 6.688-4.057-1.038-1.43L124 220.1l25.242 13.641L173.329 249l23.105-16.848L221 219.166 209.293 213zM149.437 163.074L125 176.071l22.751 15.829 24.857 13.1 24.829-13.168L222 176.072l-24.713-15.532-24.68-11.54-23.17 14.074zm3.109 23.94l-21.518-10.943 21.488-11.009 20.092-12.469 20.238 12.238 23.199 11.24-21.69 13.775-21.747 11.489-20.062-14.32z"/>
+                                    </g>
+                                    <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" x="0px" y="0px" viewBox="0 0 100 125"><g transform="translate(0,-952.36218)"><path style="text-indent:0;text-transform:none;direction:ltr;block-progression:tb;baseline-shift:baseline;color:#000000;enable-background:accumulate;" d="m 50.000002,957.36216 c -24.8291,0 -45,20.171 -45,44.99994 0,24.8292 20.1709,45.0001 45,45.0001 24.8291,0 44.999996,-20.1709 44.999996,-45.0001 0,-24.82894 -20.170896,-44.99994 -44.999996,-44.99994 z m 0,4 c 22.6673,0 40.999996,18.3328 40.999996,40.99994 0,22.6674 -18.332696,41.0001 -40.999996,41.0001 -22.6673,0 -41,-18.3327 -41,-41.0001 0,-22.66714 18.3327,-40.99994 41,-40.99994 z m -17,22 c -3.8661,0 -7,3.134 -7,7 0,3.866 3.1339,7 7,7 3.866,0 7,-3.134 7,-7 0,-3.866 -3.134,-7 -7,-7 z m 34,0 c -3.866,0 -7,3.134 -7,7 0,3.866 3.134,7 7,7 3.8661,0 7,-3.134 7,-7 0,-3.866 -3.1339,-7 -7,-7 z m 4.9688,28.84384 a 2.0002,2.0002 0 0 0 -1.625,1.0312 c -4.5032,6.7361 -11.928,11.125 -20.3438,11.125 -8.4158,0 -15.8405,-4.3889 -20.3437,-11.125 a 2.0002,2.0002 0 0 0 -1.875,-0.9062 2.0002,2.0002 0 0 0 -1.4375,3.125 c 5.1906,7.7645 13.8502,12.9062 23.6562,12.9062 9.806,0 18.4656,-5.1417 23.6562,-12.9062 a 2.0002,2.0002 0 0 0 -1.6874,-3.25 z" fill="#000000" fill-opacity="1" stroke="none" marker="none" visibility="visible" display="inline" overflow="visible"/></g></svg>
+                                </svg>
+                            </div>
+                            <div class="feature-extended-body">
+                                <h3 class="mt-0">Stage 3: Driver arrives at school</h3>
+                                <p>When the driver gets to school, another SMS notification will be sent to the parent knowing the child made it to school safely that day.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </header>
-    <main class="l-home-main">
-        <div class="c-content c-how-it-works">
-            <h2>How It Works</h2>
-            <img src="https://via.placeholder.com/500x300" alt="">
-            <p>text summary of the product and how we will do it, maybe some stats and info about the current state of
-                the bus system.
-                Donec nec tellus at erat scelerisque dignissim id vitae nunc. Maecenas leo massa, aliquam vel ligula
-                id, mattis blandit metus.</p>
-        </div>
-        <div class="c-content c-explanation">
-            <div class="c-explanation__img">
-                <img src="https://via.placeholder.com/500x300" alt="">
-            </div>
-            <div class="c-explanation__text">
-                <h2>Boop I’m a header</h2>
-                <p>
-                    text summary of the product and how we will do it, maybe some stats and info about the
-                    current
-                    state of
-                    the bus system.
-                </p>
-                <p>
-                    Donec nec tellus at erat scelerisque dignissim id vitae nunc. Maecenas leo massa, aliquam
-                    vel
-                    ligula
-                    id, mattis blandit metus. Curabitur gravida tellus eu elementum ultricies. Suspendisse diam
-                    mauris,
-                </p>
-                <p>
-                    ornare vitae arcu sed, fringilla volutpat justo.
-                    Praesent mattis dolor arcu, sit amet consectetur nisi scelerisque sit amet. (300 chars max)</p>
-            </div>
-        </div>
-        <div class="c-content c-selling">
-            <h2>
-                It’s super simple, heres why I think so
-            </h2>
-            <div class="c-selling__body">
-                <div class="c-selling__map">
-                    <img src="https://via.placeholder.com/100x100" alt="">
-                    <h3>Point One</h3>
-                    <ul>
-                        <li>Bullet1</li>
-                        <li>Bullet2</li>
-                        <li>Bullet3</li>
-                        <li>Bullet4</li>
-                    </ul>
-                    <p>some more text explaining</p>
-                </div>
-                <div class="c-selling__map">
-                    <img src="https://via.placeholder.com/100x100" alt="">
-                    <h3>Point Two</h3>
-                    <ul>
-                        <li>Bullet1</li>
-                        <li>Bullet2</li>
-                        <li>Bullet3</li>
-                        <li>Bullet4</li>
-                    </ul>
-                    <p>some more text explaining</p>
-                </div>
-                <div class="c-selling__map">
-                    <img src="https://via.placeholder.com/100x100" alt="">
-                    <h3>Point Three</h3>
-                    <ul>
-                        <li>Bullet1</li>
-                        <li>Bullet2</li>
-                        <li>Bullet3</li>
-                        <li>Bullet4</li>
-                    </ul>
-                    <p>some more text explaining</p>
-                </div>
-            </div>
-        </div>
-        <div class="c-content c-ui-map">
-            <img src="https://via.placeholder.com/500x300" alt="">
-        </div>
-    </main>
-    <footer class="l-home-footer">
-        <img src="https://via.placeholder.com/1920x1080" alt="">
-    </footer>
+            </section>
 
-    <script type="text/javascript" src="js/home-bundle.js"></script>
+            <section class="testimonials section">
+                <div class="container">
+                    <div class="testimonials-inner section-inner">
+                        <h2 class="section-title mt-0 text-center">Testimonials</h2>
+                        <div class="testimonials-wrap">
+                            <div class="testimonial text-center text-xs is-revealing">
+                                <div class="testimonial-inner">
+                                    <div class="testimonial-main">
+                                        <div class="testimonial-header">
+                                            <img class="mb-16" src="img/testimonial-01.png" alt="Testimonial">
+                                        </div>
+                                        <div class="testimonial-body">
+                                            <p>It was so nice when our district enrolled with the BusBuddy program. Being a commuter, it was nice knowing my children were getting to school safely without me being there.</p>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-footer">
+                                        <div class="testimonial-name">Mark Simons</div>
+                                        <div class="testimonial-link">
+                                            <!-- <a href="#">company.com</a> -->
+                                            <p>Father of two</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial text-center text-xs is-revealing">
+                                <div class="testimonial-inner">
+                                    <div class="testimonial-main">
+                                        <div class="testimonial-header">
+                                            <img class="mb-16" src="img/testimonial-02.png" alt="Testimonial">
+                                        </div>
+                                        <div class="testimonial-body">
+                                            <p>The notifications were such a nice confirmation knowing my little girl was making it to school okay!</p>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-footer">
+                                        <div class="testimonial-name">Emma Fitzpatrick</div>
+                                        <div class="testimonial-link">
+                                            <!-- <a href="#">fast.com</a> -->
+                                            <p>Mother of 1</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial text-center text-xs is-revealing">
+                                <div class="testimonial-inner">
+                                    <div class="testimonial-main">
+                                        <div class="testimonial-header">
+                                            <img class="mb-16" src="img/testimonial-03.png" alt="Testimonial">
+                                        </div>
+                                        <div class="testimonial-body">
+                                            <p>When both my wife and I are away, we make sure our kids are always scanning on so we know they're making it on the bus okay. Especially convenient since theyre too young for a cell phone!</p>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-footer">
+                                        <div class="testimonial-name">David Harris</div>
+                                        <div class="testimonial-link">
+                                            <!-- <a href="#">traction.com</a> -->
+                                            <p>Father of 3</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="site-footer">
+            <div class="container">
+                <div class="site-footer-inner">
+                    <div class="brand footer-brand">
+                        <a href="#">
+                            <img style="display: inline-block; width: 50px; height: 80px;" src="img/bblogo.png">
+                        </a>
+                    </div>
+                    <div class="footer-copyright">&copy; 2019 BusBuddy, all rights reserved</div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="jsgn.min.js"></script>
 </body>
-
 </html>

@@ -1,0 +1,78 @@
+.child-selected{
+	background-color: #4DAAF7;
+	color: white;
+}
+
+// *{
+// 	font-family: 'Comfortaa', sans-serif;
+// }
+
+.a-moveToQuarter{
+	animation: moveToQuarter .5s ease-in forwards;
+}
+
+.a-moveToFifty{
+	animation: moveToFifty .5s ease-in forwards;
+}
+
+.a-moveToHundred{
+	animation: moveToHundred .5s ease-in forwards;
+}
+
+.a-moveToZero{
+	animation: moveToZero .5s ease-in forwards;
+}
+
+@keyframes moveToZero{
+	from{width: initial;}
+	to{width: 0%;}
+}
+
+@keyframes moveToQuarter{
+	from{width: 0%;}
+	to{width: 25%;}
+}
+
+@keyframes moveToFifty{
+	from{width: 25%;}
+	to{width: 50%;}
+}
+
+@keyframes moveToHundred{
+	from{width: 50%;}
+	to{width: 99%;}
+}
+
+.kidsss{
+	transition: .2s all ease-in;
+}
+
+#status-icon1, #status-icon2, #status-icon3{
+	transition: .2s all ease-in;
+	border: 4px solid #bbb;
+}
+
+.c-student-info__pickup, .c-student-info__location{
+	color: #032A4A;
+	font-size: .9rem;
+	font-family: 'Assistant', sans-serif !important;
+}
+
+.c-driver-info__label, .c-driver-info__text{
+	color: #032A4A;
+	font-size: 1.1rem;
+	font-family: 'Comfortaa', sans-serif !important;
+}
+
+.c-header-text, .c-eta-text__text, .c-eta-text__timer, .c-eta-text__meridiem, .c-btn-map-view{
+	color: #032A4A;
+}
+
+.dot{
+	margin: 0 5px 0 -5px;
+}
+
+.c-timeline__item{
+	margin-right: 1.3em;
+}
+

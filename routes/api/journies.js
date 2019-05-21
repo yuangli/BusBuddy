@@ -4,6 +4,7 @@ const JourneyModel = require('../../models/Journey');
 const SchoolModel = require('../../models/School');
 const DriverCardModel = require('../../models/Drivercard');
 const StudentModel = require('../../models/Student');
+const UserModel = require('../../models/User');
 const config = require('../../config/keys');
 const twilio = require('twilio')(config.TWILIO_SID, config.TWILIO_AUTH);
 
@@ -234,10 +235,10 @@ router.post('/start', (req, res) => {
 						let childName = value.students[i].studentDetails[0].firstName;
 						
 						console.log(`Sending notification to ${childName}\'s parent @ ${parentPhone}`);
-						
+						setStatus();
 						twilio.messages
 						  .create({
-						     body: `Here we come! ${childName}\'s bus is in your area and will be arriving within minutes. \n\nOpen the BusBuddy webapp to see exactly where it is. BusBuddy.com/view`,
+						     body: `Here we come! ${childName}\'s bus is in your area and will be arriving within minutes. \n\nOpen the BusBuddy webapp to see exactly where it is. \n\ntiny.cc/BusBuddyDashboard`,
 						     from: `+1${config.TWILIO_PHONE}`,
 						     to: `+1${parentPhone}`
 						   })
@@ -247,6 +248,16 @@ router.post('/start', (req, res) => {
 				}
 			});
 		}
+		function setStatus(){
+			const id = "5c477af0b182610388f25bb3";
+			
+			UserModel.findByIdAndUpdate(id, {$set: {'children.0.status': "Bus is on its way" }}, {upsert: true, new: true}, function(err, data){
+				if (err) return console.log(err);
+
+				console.log("data: ", data);
+			});
+		}
+		
 	}
 });
 
@@ -282,7 +293,28 @@ router.post('/end', (req, res) => {
 		
 		res.send(message);
 	});
+
+	const id = "5c477af0b182610388f25bb3";
+			
+	UserModel.findByIdAndUpdate(id, {$set: {'children.0.status': "Bus has arrived at school" }}, {upsert: true, new: true}, function(err, data){
+		if (err) return console.log(err);
+
+		console.log("data: ", data);
+	});
 });
+
+router.post('/reset', (req, res) => {
+	console.log('Resetting child...');
+	
+	const id = "5c477af0b182610388f25bb3";		
+	UserModel.findByIdAndUpdate(id, {$set: {'children.0.status': "Not on bus", 'children.0.didScan': false }}, {upsert: true, new: true}, function(err, data){
+		if (err) return console.log(err);
+		
+		res.send('Success.');
+	});
+});
+
+
 
 
 module.exports = router;
